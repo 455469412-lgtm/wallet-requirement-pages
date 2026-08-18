@@ -1531,7 +1531,6 @@
     .prd-account-menu{position:absolute;z-index:2;top:0;right:5px;width:150px;border:1px solid #e3e8ef;border-radius:4px;background:#fff;box-shadow:0 8px 22px rgba(36,58,89,.16)}
     .prd-account-id{padding:8px;color:#71829b;background:#fbfcfe;font-size:8px}
     .prd-member-strip{padding:10px;color:#70431a;background:linear-gradient(135deg,#fff0d9,#ffc67c);font-size:9px;font-weight:900}
-    .prd-member-strip small{display:block;margin-top:4px;color:#8b6239;font-size:8px;font-weight:700}
     .prd-member-duration{display:flex;justify-content:space-between;gap:6px;margin-top:8px;padding-top:7px;border-top:1px solid rgba(139,98,57,.22);color:#68451f;font-size:8px}
     .prd-account-menu ul{margin:0;padding:5px 0;list-style:none}
     .prd-account-menu li{padding:6px 10px;color:#4c5b70;font-size:9px}
@@ -1547,8 +1546,6 @@
     .prd-mobile-card-body{padding:6px 10px 12px}
     .prd-mobile-card h4{margin:0;font-size:16px;line-height:1.1}
     .prd-mobile-card p{margin:3px 0 0;color:#d8d8e7;font-size:9px}
-    .prd-mobile-plan{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding:8px;border:1px solid rgba(255,255,255,.16);border-radius:6px;background:rgba(255,255,255,.08);font-size:8px}
-    .prd-mobile-plan strong{color:#ffe0b2;font-size:10px}
     .prd-mobile-content{padding:0 9px 12px}
     .prd-mobile-white{margin-bottom:8px;padding:10px;border-radius:10px;background:#fff}
     .prd-mobile-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;color:#303a4c;font-size:11px;font-weight:900}
@@ -1829,7 +1826,7 @@
               <tr class="prd-reference-group" id="prototype-pc"><th colspan="3"><span class="group-index">01</span><strong>PC 商家后台</strong><small>个人中心、资金管理</small></th></tr>
               <tr>
                 <td>商家后台 · 个人中心（桌面端）</td>
-                <td><h3>会员身份展示</h3><ul><li>复刻线上右上角账号菜单，展示商家账号、会员身份和套餐信息。</li><li>普通 1688 元/年会员展示当前到期日期；长期会员版展示“【1688】长期会员版”和“软件使用：长期有效”。</li><li>会员权益与商户认证状态分开呈现：长期会员版决定软件使用期限和抵扣额度，收款能力的开启条件仍为商户号认证，认证完成后按 5% 费率收款。</li></ul><h3>交互说明</h3><ul><li>用户点击右上角头像后查看会员卡信息；当套餐发生作废或退款时，会员卡状态跟随总控台订单结果更新。</li></ul></td>
+                <td><h3>会员身份展示</h3><ul><li>复刻线上右上角账号菜单，展示商家账号、会员身份和软件使用时长。</li><li>普通 1688 元/年会员展示当前到期日期；长期会员版以“软件使用：长期有效”作为会员状态信息。</li><li>会员权益与商户认证状态分开呈现：长期会员版决定软件使用期限和抵扣额度，收款能力的开启条件仍为商户号认证，认证完成后按 5% 费率收款。</li></ul><h3>交互说明</h3><ul><li>用户点击右上角头像后查看会员卡信息；当套餐发生作废或退款时，会员卡状态跟随总控台订单结果更新。</li></ul></td>
                 <td><div class="prd-reference-shot prd-reference-prototype"><div class="prd-replica prd-web-replica">
                   <div class="prd-web-top"><strong class="prd-web-brand">商家岛</strong><span class="prd-web-ad">可门槛 一键生成专业营销海报</span><span class="prd-web-auth">当前未认证商户号 <b>去认证 &gt;</b></span><span class="prd-web-user">头像 小戴视频店⌄</span></div>
                   <div class="prd-web-layout">
@@ -1842,7 +1839,7 @@
                     </div>
                     <div class="prd-account-menu">
                       <div class="prd-account-id">商家ID: 286101</div>
-                      <div class="prd-member-strip">商家岛会员<small>【1688】长期会员版</small><div class="prd-member-duration"><span>软件时长</span><strong>长期有效</strong></div></div>
+                      <div class="prd-member-strip">商家岛会员<div class="prd-member-duration"><span>软件时长</span><strong>长期有效</strong></div></div>
                       <ul><li>切换店铺</li><li>修改密码</li><li>退出</li></ul>
                     </div>
                   </div>
@@ -1869,13 +1866,13 @@
               <tr class="prd-reference-group" id="prototype-h5"><th colspan="3"><span class="group-index">02</span><strong>H5 商家后台</strong><small>会员中心、资金明细</small></th></tr>
               <tr>
                 <td>商家后台 · 个人中心（H5）</td>
-                <td><h3>会员卡展示</h3><ul><li>复刻 H5 商家中心的顶部认证提示、会员卡、收益卡和底部导航。</li><li>长期会员版在会员卡内以“软件时长：长期有效”为主信息，并同时展示“【1688】长期会员版”套餐身份；认证状态单独展示，避免将软件使用权与收款能力混为一体。</li><li>完成商户号认证后，收益区域展示 5% 收款费率；认证状态变化只影响收款能力，不改变软件长期有效状态。</li></ul><h3>普通年费展示</h3><ul><li>普通会员沿用“剩余时长：135 天”等到期倒计时表达，并展示当前年费会员权益。</li></ul></td>
+                <td><h3>会员卡展示</h3><ul><li>复刻 H5 商家中心的顶部认证提示、会员卡、收益卡和底部导航。</li><li>长期会员版通过会员卡右上角的“长期有效”标签展示软件使用状态，卡片主体保留商家名称和账号信息。</li><li>完成商户号认证后，收益区域展示 5% 收款费率；认证状态变化只影响收款能力，不改变软件长期有效状态。</li></ul><h3>普通年费展示</h3><ul><li>普通会员沿用“剩余时长：135 天”等到期倒计时表达，并展示当前年费会员权益。</li></ul></td>
                 <td><div class="prd-reference-shot prd-reference-prototype"><div class="prd-replica prd-mobile-replica">
                   <div class="prd-mobile-browser"><span>返回</span><strong>商家中心</strong><span>搜索</span></div>
                   <div class="prd-mobile-notice"><span>当前未认证商户号，活动无法收款</span><b>去认证 &gt;</b></div>
                   <div class="prd-mobile-card">
                     <div class="prd-mobile-card-top"><span>商家岛 VIP</span><span>长期有效</span></div>
-                    <div class="prd-mobile-card-body"><h4>小戴视频店</h4><p>18667015630</p><div class="prd-mobile-plan"><span>【1688】长期会员版</span><strong>软件时长：长期有效</strong></div></div>
+                    <div class="prd-mobile-card-body"><h4>小戴视频店</h4><p>18667015630</p></div>
                   </div>
                   <div class="prd-mobile-content">
                     <div class="prd-mobile-white"><div class="prd-mobile-title"><span style="color:#303a4c;font-size:14px">我的收益</span><span>✓ 第三方持牌机构保障</span></div><div class="prd-mobile-balance"><div><b>0</b><span>可提现余额</span></div><div><b>0.01</b><span>待结算金额</span></div><div><b>10.57</b><span>累计收款</span></div><div><b>5%</b><span>当前收款费率</span></div></div></div>
