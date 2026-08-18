@@ -1070,9 +1070,898 @@
       .hero-visual{display:none}
       .plan-cell{border-right:0}
     }
+
+    .workspace-tabs{
+      position:sticky;
+      top:0;
+      z-index:80;
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      padding:10px 16px;
+      background:rgba(255,255,255,.94);
+      border-bottom:1px solid #dcebf7;
+      box-shadow:0 8px 22px rgba(45,96,168,.06);
+      backdrop-filter:blur(14px);
+    }
+    .workspace-tab{
+      border:1px solid transparent;
+      border-radius:10px;
+      min-height:38px;
+      padding:0 18px;
+      color:#60758f;
+      background:transparent;
+      font:inherit;
+      font-size:13px;
+      font-weight:800;
+      cursor:pointer;
+      transition:all .18s ease;
+    }
+    .workspace-tab:hover{color:#2563eb;background:#f0f6ff}
+    .workspace-tab[aria-selected="true"]{
+      color:#fff;
+      background:#2563eb;
+      border-color:#2563eb;
+      box-shadow:0 8px 18px rgba(37,99,235,.2);
+    }
+    body.prd-active > .doc-header,
+    body.prd-active > .hero,
+    body.prd-active > .blue-band,
+    body.prd-active > .section{display:none}
+    body:not(.prd-active) > .prd-panel{display:none}
+    .prd-panel{display:block;background:#f6fbff;min-height:calc(100vh - 60px)}
+    .prd-container{max-width:1180px;margin:0 auto;padding:0 24px 76px}
+    .prd-hero{
+      position:relative;
+      overflow:hidden;
+      margin:0 -24px;
+      padding:48px 24px 38px;
+      background:linear-gradient(132deg,#f0f7ff 0%,#fff 52%,#e7f7ff 100%);
+      border-bottom:1px solid #dcebf7;
+    }
+    .prd-hero:before{
+      content:"";
+      position:absolute;
+      width:420px;
+      height:180px;
+      right:-90px;
+      top:-44px;
+      border:1px solid rgba(37,99,235,.12);
+      border-radius:50%;
+      transform:rotate(-16deg);
+      box-shadow:0 0 0 24px rgba(37,99,235,.035),0 0 0 48px rgba(37,99,235,.025);
+    }
+    .prd-hero-inner{position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:end}
+    .prd-kicker{display:inline-flex;align-items:center;gap:8px;color:#2563eb;font-size:12px;font-weight:900;letter-spacing:.08em;margin-bottom:14px}
+    .prd-kicker:before{content:"";width:7px;height:7px;border-radius:50%;background:#2563eb;box-shadow:0 0 0 5px rgba(37,99,235,.12)}
+    .prd-hero h1{font-size:42px;line-height:1.15;color:#142033;margin:0}
+    .prd-hero h1 span{display:block;color:#2563eb;margin-top:4px}
+    .prd-hero-copy{max-width:680px;margin:16px 0 0;color:#5f7188;font-size:15px;line-height:1.85}
+    .prd-hero-side{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .prd-hero-metric{padding:16px;border:1px solid #dcebf7;background:rgba(255,255,255,.82);border-radius:14px;box-shadow:0 12px 28px rgba(49,111,205,.08)}
+    .prd-hero-metric strong{display:block;color:#183052;font-size:20px;line-height:1.25;margin-bottom:6px}
+    .prd-hero-metric span{display:block;color:#6b7c92;font-size:12px;line-height:1.6}
+    .prd-section{padding-top:42px}
+    .prd-section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:18px}
+    .prd-section-head h2{margin:0;color:#142033;font-size:24px;line-height:1.25}
+    .prd-section-head p{max-width:610px;margin:7px 0 0;color:#6b7c92;font-size:13px;line-height:1.7}
+    .prd-section-no{color:#2563eb;font-size:12px;font-weight:900;letter-spacing:.1em;white-space:nowrap}
+    .prd-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .prd-card{padding:20px;border:1px solid #dcebf7;border-radius:16px;background:#fff;box-shadow:0 12px 28px rgba(49,111,205,.06)}
+    .prd-card h3{margin:0 0 9px;color:#183052;font-size:16px}
+    .prd-card p{margin:0;color:#60738b;font-size:13px;line-height:1.8}
+    .prd-card .prd-card-label{display:inline-flex;margin-bottom:12px;color:#2563eb;background:#eef5ff;border-radius:7px;padding:5px 8px;font-size:11px;font-weight:900}
+    .prd-rule-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .prd-rule{display:grid;grid-template-columns:112px 1fr;gap:14px;padding:16px 18px;border:1px solid #dcebf7;border-radius:14px;background:#fff}
+    .prd-rule-label{color:#2563eb;font-size:13px;font-weight:900}
+    .prd-rule-body strong{display:block;color:#183052;font-size:14px;margin-bottom:5px}
+    .prd-rule-body p{margin:0;color:#617389;font-size:13px;line-height:1.75}
+    .prd-note{margin-top:14px;padding:14px 16px;border-left:3px solid #2563eb;border-radius:0 10px 10px 0;background:#eef6ff;color:#385676;font-size:13px;line-height:1.75}
+    .prd-flow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;align-items:stretch}
+    .prd-flow-step{position:relative;min-height:148px;padding:16px 12px;border:1px solid #dcebf7;border-radius:14px;background:#fff;box-shadow:0 10px 22px rgba(49,111,205,.05)}
+    .prd-flow-step:not(:last-child):after{content:"→";position:absolute;right:-15px;top:56px;color:#76a7ee;font-size:18px;font-weight:900;z-index:2}
+    .prd-flow-step b{display:flex;align-items:center;justify-content:center;width:26px;height:26px;margin-bottom:13px;border-radius:8px;color:#fff;background:#2563eb;font-size:12px}
+    .prd-flow-step strong{display:block;color:#183052;font-size:13px;line-height:1.45;margin-bottom:7px}
+    .prd-flow-step span{display:block;color:#6a7a90;font-size:12px;line-height:1.65}
+    .prd-scope{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .prd-scope-box{padding:18px 20px;border-radius:16px;background:#fff;border:1px solid #dcebf7}
+    .prd-scope-box h3{margin:0 0 12px;font-size:16px;color:#183052}
+    .prd-scope-box ul{margin:0;padding-left:18px;color:#60738b;font-size:13px;line-height:1.85}
+    .prd-scope-box.out{background:#fffaf7;border-color:#f2dfd3}
+    .prd-scope-box.out h3{color:#9a563b}
+    .prd-table-shell{overflow-x:auto;border:1px solid #dcebf7;border-radius:16px;background:#fff;box-shadow:0 12px 28px rgba(49,111,205,.06)}
+    .prd-table{width:100%;border-collapse:collapse;min-width:900px}
+    .prd-table th,.prd-table td{padding:13px 14px;border-bottom:1px solid #e9f0f7;text-align:left;vertical-align:top;font-size:12px;line-height:1.6}
+    .prd-table th{color:#5d7390;background:#f7fbff;font-weight:900;white-space:nowrap}
+    .prd-table td{color:#526984}
+    .prd-table td:first-child{color:#183052;font-weight:900;white-space:nowrap}
+    .prd-table tr:last-child td{border-bottom:0}
+    .prd-table .must{color:#2563eb;font-weight:900}
+    .prd-prototype-intro{padding:16px 18px;margin-bottom:16px;border:1px solid #dcebf7;border-radius:14px;background:#fff;color:#617389;font-size:13px;line-height:1.75}
+    .prd-prototype-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+    .prd-prototype{border:1px solid #d5e4f1;border-radius:18px;background:#edf3f8;padding:12px;box-shadow:0 16px 34px rgba(49,111,205,.08)}
+    .prd-prototype-head{display:flex;justify-content:space-between;align-items:center;padding:4px 4px 12px;color:#183052;font-size:13px;font-weight:900}
+    .prd-prototype-head span{color:#7990a8;font-size:11px;font-weight:700}
+    .prd-ui{overflow:hidden;border:1px solid #e2e8ef;border-radius:12px;background:#fff;box-shadow:0 8px 18px rgba(28,52,78,.08)}
+    .prd-ui-top{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-bottom:1px solid #edf1f5;color:#25364d;font-size:12px;font-weight:900}
+    .prd-ui-top .ui-status{color:#e05d43;background:#fff0eb;padding:5px 7px;border-radius:6px;font-size:10px}
+    .prd-member-card{margin:14px;padding:16px;border-radius:13px;background:linear-gradient(135deg,#253b61,#385d9c);color:#fff}
+    .prd-member-card-top{display:flex;justify-content:space-between;align-items:center;color:#dceaff;font-size:11px;font-weight:800}
+    .prd-member-card h4{margin:20px 0 4px;font-size:18px}
+    .prd-member-card p{margin:0;color:#dae7ff;font-size:11px}
+    .prd-member-chip{display:inline-flex;margin-top:13px;padding:5px 8px;border-radius:6px;background:#fff;color:#2563eb;font-size:10px;font-weight:900}
+    .prd-ui-section{margin:14px;padding:14px;border:1px solid #e8eef5;border-radius:11px;background:#fff}
+    .prd-ui-section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;color:#25364d;font-size:13px;font-weight:900}
+    .prd-ui-section-title span{color:#2563eb;font-size:11px}
+    .prd-balance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .prd-balance{padding:10px;border-radius:9px;background:#f6f9fd}
+    .prd-balance strong{display:block;color:#2563eb;font-size:17px;line-height:1.2}
+    .prd-balance span{display:block;margin-top:5px;color:#77889d;font-size:10px;line-height:1.4}
+    .prd-rate-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid #edf1f5;color:#63758b;font-size:11px}
+    .prd-rate-row:first-of-type{border-top:0}
+    .prd-rate-row strong{color:#25364d}
+    .prd-mini-tabs{display:flex;gap:18px;padding:0 14px;border-bottom:1px solid #edf1f5;color:#8594a7;font-size:11px}
+    .prd-mini-tabs span{padding:10px 0}
+    .prd-mini-tabs .active{color:#2563eb;border-bottom:2px solid #2563eb;font-weight:900}
+    .prd-ledger{padding:0 14px}
+    .prd-ledger-row{display:grid;grid-template-columns:1.25fr .8fr .8fr;gap:8px;padding:12px 0;border-bottom:1px solid #edf1f5;font-size:10px;line-height:1.5}
+    .prd-ledger-row:last-child{border-bottom:0}
+    .prd-ledger-row strong{display:block;color:#25364d;font-size:11px}
+    .prd-ledger-row span{display:block;color:#8492a4}
+    .prd-ledger-row .negative{color:#e05d43;text-align:right;font-size:12px;font-weight:900}
+    .prd-ledger-row .post{color:#63758b;text-align:right}
+    .prd-console{padding:0 4px 4px;background:#f7f9fc}
+    .prd-console-bar{display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fff;border-bottom:1px solid #e7edf3;color:#25364d;font-size:12px;font-weight:900}
+    .prd-console-bar span{margin-left:auto;color:#2563eb;font-size:10px}
+    .prd-console-filters{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:8px;padding:12px;background:#fff}
+    .prd-input{min-height:28px;display:flex;align-items:center;padding:0 9px;border:1px solid #dce5ee;border-radius:5px;color:#9aa8b7;background:#fff;font-size:10px}
+    .prd-input.active{color:#25364d;border-color:#7ba8f5;background:#f8fbff}
+    .prd-console-panel{margin:0 12px 12px;padding:13px;border:1px solid #dce5ee;border-radius:10px;background:#fff}
+    .prd-console-panel-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;color:#25364d;font-size:12px;font-weight:900}
+    .prd-console-panel-title span{color:#2563eb;font-size:10px}
+    .prd-order-card{border:1px solid #dfe8f1;border-radius:8px;overflow:hidden}
+    .prd-order-head{display:flex;justify-content:space-between;padding:10px;background:#f7fbff;color:#63758b;font-size:10px}
+    .prd-order-form{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:12px}
+    .prd-field label{display:block;margin-bottom:5px;color:#7c8d9f;font-size:9px}
+    .prd-field .prd-input{color:#273c54;font-size:10px}
+    .prd-benefits{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid #edf1f5}
+    .prd-benefit{padding:8px;border-radius:7px;background:#f4f8fd}
+    .prd-benefit b{display:block;color:#2563eb;font-size:13px}
+    .prd-benefit span{display:block;margin-top:3px;color:#718399;font-size:9px}
+    .prd-action-row{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
+    .prd-action{padding:7px 12px;border-radius:5px;font-size:10px;font-weight:900}
+    .prd-action.primary{color:#fff;background:#2563eb}
+    .prd-action.secondary{color:#62758d;border:1px solid #dce5ee;background:#fff}
+    .prd-order-list{margin-top:12px;border:1px solid #dfe8f1;border-radius:8px;overflow:hidden}
+    .prd-order-list-row{display:grid;grid-template-columns:.75fr 1.3fr .85fr .75fr 1fr;gap:8px;padding:10px;border-bottom:1px solid #edf1f5;color:#64768c;font-size:9px;line-height:1.5}
+    .prd-order-list-row:last-child{border-bottom:0}
+    .prd-order-list-row.header{color:#7b8da1;background:#f7fbff;font-weight:900}
+    .prd-order-list-row strong{color:#25364d;font-size:10px}
+    .prd-order-list-row .success{color:#159477;font-weight:900}
+    .prd-field-table{margin-top:16px}
+    .prd-acceptance{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .prd-acceptance-item{display:grid;grid-template-columns:30px 1fr;gap:11px;padding:15px;border:1px solid #dcebf7;border-radius:14px;background:#fff}
+    .prd-acceptance-item b{display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#eaf2ff;color:#2563eb;font-size:12px}
+    .prd-acceptance-item strong{display:block;color:#183052;font-size:13px;margin-bottom:5px}
+    .prd-acceptance-item p{margin:0;color:#617389;font-size:12px;line-height:1.7}
+    .prd-final-note{margin-top:28px;padding:18px 20px;border:1px solid #bcd7ff;border-radius:14px;background:#eef6ff;color:#315276;font-size:13px;line-height:1.8}
+    @media(max-width:900px){
+      .workspace-tabs{justify-content:flex-start;overflow-x:auto}
+      .prd-hero-inner,.prd-card-grid,.prd-rule-grid,.prd-scope,.prd-prototype-grid,.prd-acceptance{grid-template-columns:1fr}
+      .prd-hero h1{font-size:34px}
+      .prd-flow{grid-template-columns:1fr 1fr}
+      .prd-flow-step:not(:last-child):after{display:none}
+      .prd-section-head{display:block}
+      .prd-section-no{display:block;margin-bottom:8px}
+    }
+    @media(max-width:560px){
+      .prd-container{padding-left:16px;padding-right:16px}
+      .prd-hero{margin-left:-16px;margin-right:-16px;padding-left:16px;padding-right:16px}
+      .prd-hero-side,.prd-balance-grid,.prd-console-filters{grid-template-columns:1fr 1fr}
+      .prd-rule{grid-template-columns:1fr;gap:7px}
+      .prd-flow{grid-template-columns:1fr}
+      .prd-hero h1{font-size:30px}
+      .prd-order-form{grid-template-columns:1fr}
+    }
+
+    /* PRD workspace shell: keep the original plan as a separate document view. */
+    body.prd-active > .workspace-tabs{display:none}
+    body.prd-active .prd-panel{background:#f3f5fa}
+    .prd-app-shell{display:grid;grid-template-columns:218px minmax(0,1fr);min-height:calc(100vh - 1px)}
+    .prd-sidebar{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;padding:20px 14px;background:#111a2c;color:#eef4ff}
+    .prd-brand{display:flex;align-items:center;gap:9px;padding:4px 10px 22px;font-size:15px;font-weight:900}
+    .prd-brand span{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;color:#fff;background:linear-gradient(135deg,#2f74ff,#63bbff);font-size:11px}
+    .prd-brand strong{letter-spacing:.02em}
+    .prd-sidebar-caption{padding:0 10px 11px;color:#7d8da6;font-size:11px}
+    .prd-sidebar-group{padding:14px 10px 7px;color:#8493ab;font-size:11px;font-weight:800}
+    .prd-sidebar .prd-sidebar-tab{width:100%;display:flex;align-items:center;gap:9px;min-height:38px;padding:0 11px;border:0;border-radius:8px;color:#aab8cd;background:transparent;text-align:left;font-size:13px;font-weight:800;box-shadow:none}
+    .prd-sidebar .prd-sidebar-tab:before{content:"";width:5px;height:5px;border-radius:50%;background:#667892}
+    .prd-sidebar .prd-sidebar-tab:hover{color:#fff;background:#1a2944}
+    .prd-sidebar .prd-sidebar-tab[aria-selected="true"]{color:#fff;background:#213557;box-shadow:inset 2px 0 0 #4c8dff}
+    .prd-sidebar .prd-sidebar-tab[aria-selected="true"]:before{background:#6ca4ff;box-shadow:0 0 0 4px rgba(108,164,255,.12)}
+    .prd-sidebar-divider{height:1px;margin:22px 10px 18px;background:#26354b}
+    .prd-sidebar-foot{margin-top:auto;padding:0 10px;color:#c9d6e9;font-size:12px;line-height:1.7}
+    .prd-sidebar-foot span{color:#7587a2;font-size:11px}
+    .prd-main{min-width:0;background:#f3f5fa}
+    .prd-main-top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 28px 0}
+    .prd-version-tabs{display:inline-flex;gap:4px;padding:4px;border:1px solid #e0e6ef;border-radius:8px;background:#fff;box-shadow:0 3px 12px rgba(37,56,84,.05)}
+    .prd-version-tabs span{display:inline-flex;align-items:center;min-height:32px;padding:0 13px;border-radius:6px;color:#6f7e93;font-size:12px;font-weight:900}
+    .prd-version-tabs .active{color:#2563eb;background:#edf4ff}
+    .prd-main-meta{display:flex;gap:14px;color:#7d8a9d;font-size:11px;white-space:nowrap}
+    .prd-main .prd-container{max-width:none;padding:14px 28px 64px}
+    .prd-main .prd-hero{margin:0;padding:22px 22px 20px;border:1px solid #e1e7ef;border-radius:10px;background:#fff;box-shadow:0 5px 16px rgba(32,52,79,.05)}
+    .prd-main .prd-hero:before{display:none}
+    .prd-main .prd-hero-inner{max-width:none;grid-template-columns:minmax(0,1fr) 340px;gap:28px;align-items:center}
+    .prd-main .prd-kicker{margin-bottom:9px;color:#2563eb;font-size:10px}
+    .prd-main .prd-hero h1{font-size:28px;line-height:1.25}
+    .prd-main .prd-hero h1 span{display:inline;color:#2563eb;margin-left:8px}
+    .prd-main .prd-hero-copy{max-width:760px;margin-top:10px;color:#617289;font-size:13px;line-height:1.75}
+    .prd-main .prd-hero-side{grid-template-columns:repeat(2,1fr);gap:8px}
+    .prd-main .prd-hero-metric{padding:12px;border:1px solid #e6ebf2;border-radius:8px;background:#f9fbfd;box-shadow:none}
+    .prd-main .prd-hero-metric strong{font-size:16px;margin-bottom:5px}
+    .prd-main .prd-hero-metric span{font-size:10px}
+    .prd-main .prd-section{padding-top:24px}
+    .prd-main .prd-section-head{display:block;margin-bottom:12px}
+    .prd-main .prd-section-head h2{font-size:19px}
+    .prd-main .prd-section-head p{max-width:760px;margin-top:5px;font-size:12px}
+    .prd-main .prd-section-no{display:block;margin-bottom:4px;font-size:10px}
+    .prd-main .prd-card-grid{gap:10px}
+    .prd-main .prd-card{padding:16px;border-radius:8px;box-shadow:0 4px 12px rgba(37,56,84,.04)}
+    .prd-main .prd-card h3{font-size:14px}
+    .prd-main .prd-card p{font-size:12px;line-height:1.7}
+    .prd-main .prd-card .prd-card-label{margin-bottom:9px;padding:4px 7px;font-size:10px}
+    .prd-main .prd-rule{padding:13px 15px;border-radius:8px;box-shadow:none}
+    .prd-main .prd-rule-label{font-size:11px}
+    .prd-main .prd-rule-body strong{font-size:13px}
+    .prd-main .prd-rule-body p{font-size:12px}
+    .prd-main .prd-flow-step{min-height:126px;padding:13px 11px;border-radius:8px;box-shadow:none}
+    .prd-main .prd-flow-step strong{font-size:12px}
+    .prd-main .prd-flow-step span{font-size:11px}
+    .prd-main .prd-scope-box{padding:16px;border-radius:8px}
+    .prd-main .prd-scope-box h3{font-size:14px}
+    .prd-main .prd-scope-box ul{font-size:12px}
+    .prd-main .prd-table-shell{border-radius:8px;box-shadow:0 4px 12px rgba(37,56,84,.04)}
+    .prd-main .prd-table th,.prd-main .prd-table td{padding:11px 12px;font-size:11px}
+    .prd-main .prd-prototype-intro{padding:12px 14px;margin-bottom:12px;border-radius:8px;font-size:12px}
+    .prd-main .prd-prototype-grid{gap:12px}
+    .prd-main .prd-prototype{padding:9px;border-radius:9px;background:#e9edf3;box-shadow:0 6px 16px rgba(37,56,84,.06)}
+    .prd-main .prd-prototype-head{padding:3px 3px 9px;font-size:12px}
+    .prd-main .prd-prototype-head span{font-size:10px}
+    .prd-main .prd-acceptance-item{padding:13px;border-radius:8px}
+    .prd-main .prd-final-note{padding:14px 16px;border-radius:8px;font-size:12px}
+    .prd-screen{overflow:hidden;border:1px solid #d9e1ea;border-radius:6px;background:#fff;color:#42556f;font-size:9px;box-shadow:0 7px 18px rgba(28,48,73,.1)}
+    .prd-screen-topbar,.prd-console-topbar{display:flex;align-items:center;gap:12px;min-height:27px;padding:0 10px;border-bottom:1px solid #edf1f5;background:#fff;white-space:nowrap}
+    .prd-screen-topbar>strong,.prd-console-topbar>strong{color:#2f73ed;font-size:11px}
+    .prd-screen-alert{margin-left:auto;padding:4px 6px;color:#e15b41;background:#fff1ed;border-radius:4px;font-size:8px}
+    .prd-screen-alert b{margin-left:4px;color:#fff;background:#f26042;border-radius:3px;padding:2px 4px}
+    .prd-screen-auth-alert{margin-left:auto;padding:4px 6px;color:#168c72;background:#eaf9f4;border-radius:4px;font-size:8px;font-weight:800}
+    .prd-screen-user{color:#6e7d91;font-size:8px}
+    .prd-screen-body{display:grid;grid-template-columns:78px minmax(0,1fr);min-height:315px}
+    .prd-screen-nav{display:grid;align-content:start;gap:2px;padding:12px 5px;background:#fbfcfe;border-right:1px solid #edf1f5;color:#718095;font-size:8px}
+    .prd-screen-nav strong{padding:0 5px 7px;color:#263a54;font-size:10px}
+    .prd-screen-nav span{padding:6px 5px;border-radius:4px}
+    .prd-screen-nav span.active{color:#2563eb;background:#eaf1ff;font-weight:900}
+    .prd-screen-content{min-width:0;padding:11px;background:#fff}
+    .prd-screen-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
+    .prd-screen-heading b{color:#25384f;font-size:13px}
+    .prd-screen-heading span{display:block;margin-top:2px;color:#8390a2;font-size:8px}
+    .prd-auth-badge{padding:4px 6px;color:#168c72;background:#eaf9f4;border-radius:4px;font-style:normal;font-size:8px}
+    .prd-stat-row{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-bottom:9px}
+    .prd-stat-row>div{min-width:0;padding:8px 6px;border:1px solid #edf1f5;border-radius:5px;background:#fbfcfe}
+    .prd-stat-row span{display:block;color:#8390a2;font-size:7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .prd-stat-row strong{display:block;margin-top:5px;color:#25384f;font-size:13px;line-height:1.1}
+    .prd-stat-row .accent{background:#f0f6ff;border-color:#cfe0ff}
+    .prd-stat-row .accent strong{color:#2563eb;font-size:11px}
+    .prd-screen-subtabs{display:flex;gap:15px;border-bottom:1px solid #e9eef4;color:#8290a2;font-size:8px}
+    .prd-screen-subtabs span{padding:6px 1px}
+    .prd-screen-subtabs .active{color:#2563eb;border-bottom:2px solid #2563eb;font-weight:900}
+    .prd-screen-notice{margin:8px 0;padding:6px 7px;color:#6d5c32;background:#fff9e8;border:1px solid #f5e5b9;border-radius:4px;font-size:8px;line-height:1.5}
+    .prd-screen-notice b{color:#e07a2c}
+    .prd-screen-filter{display:grid;grid-template-columns:1.1fr 1fr auto;gap:5px;align-items:center;margin-bottom:8px}
+    .prd-screen-filter span{display:flex;align-items:center;gap:3px;color:#8390a2;font-size:7px;white-space:nowrap}
+    .prd-screen-filter input,.prd-screen-filter select{width:68px;height:20px;padding:0 3px;border:1px solid #dfe7ef;border-radius:3px;color:#718095;background:#fff;font-size:7px}
+    .prd-screen-filter button{height:20px;padding:0 6px;border:0;border-radius:3px;color:#fff;background:#4388f2;font-size:7px}
+    .prd-ledger-table{overflow:hidden;border:1px solid #e8edf3;border-radius:4px}
+    .prd-ledger-head,.prd-ledger-line{display:grid;grid-template-columns:.75fr .9fr 1.25fr .7fr .85fr .8fr;gap:4px;align-items:start;padding:7px 5px;border-bottom:1px solid #edf1f5;font-size:7px;line-height:1.45}
+    .prd-ledger-head{color:#8190a3;background:#f8fafc;font-weight:900}
+    .prd-ledger-line:last-child{border-bottom:0}
+    .prd-ledger-line span{color:#697b91}
+    .prd-ledger-line strong{color:#e05c43;font-size:8px}
+    .prd-ledger-line strong.positive{color:#159477}
+    .prd-ledger-line small{color:#9ba6b4;font-size:6px;font-weight:400}
+    .prd-console-topbar{gap:11px;background:#f9fbfe;color:#7a899b}
+    .prd-console-topbar>span{padding:7px 0;font-size:8px}
+    .prd-console-topbar>span.active{color:#2563eb;border-bottom:2px solid #2563eb;font-weight:900}
+    .prd-console-admin{margin-left:auto;color:#6e7d91;font-size:8px}
+    .prd-console-body{padding:10px;background:#f7f9fc}
+    .prd-console-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;color:#273a53;font-size:12px}
+    .prd-console-btn{height:21px;margin-left:4px;padding:0 7px;border:1px solid #dce5ef;border-radius:3px;color:#6d7e92;background:#fff;font-size:8px}
+    .prd-console-btn.primary{border-color:#4388f2;color:#fff;background:#4388f2}
+    .prd-console-filters{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:7px;border:1px solid #e5ebf2;border-radius:5px;background:#fff}
+    .prd-console-filters span{display:flex;align-items:center;gap:3px;color:#7d8c9d;font-size:7px;white-space:nowrap}
+    .prd-console-filters input,.prd-console-filters select{min-width:0;width:100%;height:20px;padding:0 4px;border:1px solid #dce5ee;border-radius:3px;color:#596d84;background:#fff;font-size:7px}
+    .prd-console-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:8px 0}
+    .prd-console-kpis>div{padding:7px;border-radius:5px;background:#f0f5ff}
+    .prd-console-kpis>div:nth-child(2){background:#eef9fc}
+    .prd-console-kpis>div:nth-child(3){background:#f1fbf7}
+    .prd-console-kpis>div.warn{background:#fff7ea}
+    .prd-console-kpis span,.prd-console-kpis small{display:block;color:#7b899b;font-size:7px}
+    .prd-console-kpis strong{display:block;margin:4px 0;color:#2d3e54;font-size:14px}
+    .prd-console-kpis small{font-size:6px}
+    .prd-recharge-modal{border:1px solid #dbe4ee;border-radius:5px;background:#fff;box-shadow:0 5px 16px rgba(35,58,86,.08)}
+    .prd-modal-title{display:flex;justify-content:space-between;padding:8px 10px;border-bottom:1px solid #edf1f5;color:#273a53;font-size:11px}
+    .prd-modal-title span{color:#9aa8b8;font-size:14px;line-height:10px}
+    .prd-modal-search{display:grid;grid-template-columns:auto 1fr auto;gap:4px;align-items:center;padding:8px 10px 5px;color:#7b899b;font-size:7px}
+    .prd-modal-search input,.prd-modal-search button{height:20px;border:1px solid #dce5ee;border-radius:3px;font-size:7px}
+    .prd-modal-search input{min-width:0;padding:0 5px;color:#273a53}
+    .prd-modal-search button{padding:0 7px;color:#fff;border-color:#4388f2;background:#4388f2}
+    .prd-modal-search div{grid-column:2/-1;padding:5px 6px;border:1px solid #a9c9ff;border-radius:4px;color:#4c5f77;background:#f7fbff;font-size:7px}
+    .prd-modal-search div span{color:#8492a3}
+    .prd-modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:4px 10px 8px}
+    .prd-modal-grid label{display:grid;gap:3px;color:#7b899b;font-size:7px}
+    .prd-modal-grid label.wide{grid-column:1/-1}
+    .prd-modal-grid input,.prd-modal-grid select{height:20px;min-width:0;padding:0 5px;border:1px solid #dce5ee;border-radius:3px;color:#273a53;background:#fff;font-size:7px}
+    .prd-modal-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin:0 10px;padding-top:7px;border-top:1px solid #edf1f5}
+    .prd-modal-benefits span{padding:6px;border-radius:4px;color:#7a899b;background:#f6f9fd;font-size:7px;line-height:1.4}
+    .prd-modal-benefits b{display:block;color:#2563eb;font-size:10px}
+    .prd-modal-foot{display:flex;justify-content:flex-end;align-items:center;gap:5px;padding:8px 10px}
+    .prd-modal-foot small{margin-right:auto;color:#9aa7b5;font-size:6px}
+    .prd-modal-foot button{height:21px;padding:0 7px;border:1px solid #dce5ee;border-radius:3px;color:#718095;background:#fff;font-size:7px}
+    .prd-modal-foot button.primary{border-color:#4388f2;color:#fff;background:#4388f2}
+    .prd-order-table{overflow:hidden;margin-top:8px;border:1px solid #e2e8ef;border-radius:4px;background:#fff}
+    .prd-order-table-head,.prd-order-table-row{display:grid;grid-template-columns:.5fr 1fr 1.3fr .7fr .75fr .75fr .85fr;gap:4px;padding:7px 5px;border-bottom:1px solid #edf1f5;font-size:6px;line-height:1.45}
+    .prd-order-table-head{color:#8190a3;background:#f8fafc;font-weight:900}
+    .prd-order-table-row:last-child{border-bottom:0}
+    .prd-order-table-row>span{color:#63768d}
+    .prd-order-table-row .ok{color:#159477}
+    body.prd-active > .workspace-tabs{display:flex}
+    body.prd-active .prd-app-shell{display:block}
+    body.prd-active .prd-sidebar{display:none}
+    .prd-reference-section{padding-top:18px}
+    .prd-reference-intro{margin:0 0 12px;color:#64758b;font-size:12px;line-height:1.7}
+    .prd-reference-shell{overflow:hidden;border:1px solid #d6e1ec;border-radius:0;background:#fff}
+    .prd-reference-table{width:100%;border-collapse:collapse;table-layout:fixed}
+    .prd-reference-table th,.prd-reference-table td{border-right:1px solid #d6e1ec;border-bottom:1px solid #d6e1ec;vertical-align:top;text-align:left}
+    .prd-reference-table th:last-child,.prd-reference-table td:last-child{border-right:0}
+    .prd-reference-table tr:last-child td{border-bottom:0}
+    .prd-reference-table th{padding:12px 14px;color:#596a80;background:#f5f8fc;font-size:12px;font-weight:900}
+    .prd-reference-table th:nth-child(1){width:13%}
+    .prd-reference-table th:nth-child(2){width:55%}
+    .prd-reference-table th:nth-child(3){width:32%}
+    .prd-reference-table td{padding:16px 14px;color:#273b55;font-size:12px;line-height:1.75}
+    .prd-reference-table td:first-child{color:#172b46;font-size:13px;font-weight:900}
+    .prd-reference-table h3{margin:0 0 5px;color:#1f3553;font-size:14px}
+    .prd-reference-table ul{margin:0 0 13px;padding-left:18px}
+    .prd-reference-table ul:last-child{margin-bottom:0}
+    .prd-reference-table li{margin:3px 0}
+    .prd-reference-table .prd-ref-note{padding:10px 11px;border-radius:5px;background:#f5f8fc;color:#64758b;font-size:11px;line-height:1.7}
+    .prd-reference-table .prd-ref-note strong{color:#2563eb}
+    .prd-reference-shot{overflow:hidden;border:1px solid #d9e2eb;border-radius:5px;background:#edf1f6;box-shadow:0 4px 12px rgba(34,55,80,.08)}
+    .prd-reference-shot>.prd-screen{border:0;border-radius:0;box-shadow:none;transform-origin:top left}
+    .prd-reference-shot .prd-screen-body{min-height:315px}
+    .prd-reference-shot .prd-console-body{min-height:315px}
+    .prd-reference-shot.empty{min-height:110px;display:flex;align-items:center;justify-content:center;padding:16px;color:#8290a2;background:#f8fafc;font-size:11px}
+    .prd-reference-section + .prd-section{padding-top:30px}
+    .prd-reference-section + .prd-section .prd-section-no:before{content:"详细需求补充 · ";color:#8795a8;letter-spacing:0}
+    .prd-legacy-prototype-section{display:none}
+
+    @media(max-width:900px){
+      .prd-app-shell{grid-template-columns:1fr}
+      .prd-sidebar{position:relative;top:auto;height:auto;display:block;padding:12px 14px}
+      .prd-brand{display:inline-flex;padding:0 8px 11px}
+      .prd-sidebar-caption,.prd-sidebar-group,.prd-sidebar-divider,.prd-sidebar-foot{display:none}
+      .prd-sidebar .prd-sidebar-tab{display:inline-flex;width:auto;min-width:104px;margin-right:5px;min-height:34px}
+      .prd-main-top{padding:13px 16px 0}
+      .prd-main .prd-container{padding-left:16px;padding-right:16px}
+      .prd-main .prd-hero-inner{grid-template-columns:1fr}
+    }
+    @media(max-width:560px){
+      .prd-main-meta{display:none}
+      .prd-main .prd-hero h1{font-size:23px}
+      .prd-main .prd-hero h1 span{display:block;margin:2px 0 0}
+      .prd-main .prd-hero-side{grid-template-columns:repeat(2,1fr)}
+      .prd-main .prd-hero-copy{font-size:12px}
+    }
+    @media(max-width:900px){
+      .prd-reference-shell{overflow-x:auto}
+      .prd-reference-table{min-width:760px}
+    }
+
+    /* Unified document workspace: the version switcher is the only document navigation. */
+    body:not(.prd-active) > .prd-panel,
+    body.prd-active > .prd-panel{display:block}
+    .prd-panel{min-height:100vh;background:#f3f5fa}
+    .prd-main-top.document-switcher{max-width:1498px;margin:0 auto;padding:18px 16px 0}
+    .prd-version-tabs{gap:0;padding:4px;border-radius:8px}
+    .prd-version-tabs .doc-tab{min-height:32px;padding:0 14px;border:0;border-radius:6px;color:#6f7e93;background:transparent;font:inherit;font-size:12px;font-weight:900;cursor:pointer}
+    .prd-version-tabs .doc-tab:hover{color:#2563eb;background:#f3f7ff}
+    .prd-version-tabs .doc-tab.active{color:#2563eb;background:#edf4ff}
+    .prd-app-shell{grid-template-columns:218px minmax(0,1fr);max-width:1498px;margin:0 auto;min-height:calc(100vh - 72px)}
+    .prd-main{max-width:1280px;width:100%;padding:0 16px}
+    .prd-main .prd-container{max-width:1280px;padding:14px 0 64px}
+    .prd-reference-image{display:block;width:100%;height:auto;background:#fff}
+    .prd-reference-shot{background:#f8fafc}
+    .prd-reference-shot.empty{display:none}
+    .plan-view{display:none}
+    body.plan-active .prd-app-shell{display:none}
+    body.plan-active .plan-view{display:block}
+    body.plan-active .prd-panel{background:#f6fbff}
+    body.plan-active .prd-main-meta{color:#6f7f95}
+    .prd-sidebar .prd-sidebar-tab{cursor:default}
+    .prd-sidebar .prd-sidebar-tab:not(.active):hover{color:#aab8cd;background:transparent}
+
+    @media(max-width:900px){
+      .prd-main-top.document-switcher{padding:13px 16px 0}
+      .prd-app-shell{grid-template-columns:1fr;min-height:0}
+      .prd-main{padding:0}
+      .prd-main .prd-container{padding-left:16px;padding-right:16px}
+    }
+    @media(max-width:560px){
+      .prd-main-top.document-switcher{padding-left:16px;padding-right:16px}
+      .prd-main-meta{display:none}
+    }
+
+    /* High-fidelity replicas of the existing merchant and console pages. */
+    .prd-reference-prototype{padding:0;background:#f4f6fa}
+    .prd-replica{overflow:hidden;color:#43536a;font-size:10px;line-height:1.45}
+    .prd-replica *{box-sizing:border-box}
+    .prd-web-replica{position:relative;min-height:290px;background:#fff}
+    .prd-web-top{display:flex;align-items:center;gap:8px;height:30px;padding:0 8px;border-bottom:1px solid #edf1f5;background:#fff;white-space:nowrap}
+    .prd-web-brand{color:#4d79df;font-size:12px;font-weight:900}
+    .prd-web-ad{flex:1;min-width:42px;height:19px;border-radius:10px;background:linear-gradient(90deg,#ff4b42,#ffbd52);color:#fff;font-size:7px;font-weight:900;text-align:center;line-height:19px}
+    .prd-web-auth{padding:5px 6px;border-radius:4px;color:#e8563d;background:#fff0ed;font-size:7px}
+    .prd-web-auth b{margin-left:3px;padding:3px 5px;border-radius:3px;color:#fff;background:#f25339}
+    .prd-web-user{color:#52647a;font-size:7px}
+    .prd-web-layout{display:grid;grid-template-columns:66px minmax(0,1fr);min-height:260px}
+    .prd-web-nav{padding:8px 4px;border-right:1px solid #eef1f5;background:#fbfcfe;color:#687991;font-size:8px}
+    .prd-web-nav strong{display:block;padding:4px;color:#2a3c56;font-size:9px}
+    .prd-web-nav span{display:block;padding:6px 4px;border-radius:3px}
+    .prd-web-nav .active{color:#2563eb;background:#e9f0ff;font-weight:900}
+    .prd-web-main{position:relative;min-width:0;padding:8px;background:#fff}
+    .prd-web-banner{padding:8px;border-radius:3px;color:#284fc8;background:#e9edff;text-align:center;font-size:10px;font-weight:900}
+    .prd-web-filters{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:5px;margin:8px 0}
+    .prd-web-select{height:21px;padding:4px 6px;border:1px solid #e0e6ee;border-radius:3px;color:#8997a8;background:#fff;font-size:8px}
+    .prd-web-activity{display:grid;grid-template-columns:42px 1fr 96px;gap:6px;padding:10px 0;border-top:1px solid #edf1f5}
+    .prd-web-cover{height:42px;border-radius:3px;background:linear-gradient(145deg,#ff9ac2,#f45b83);color:#fff;text-align:center;font-size:8px;font-weight:900;line-height:42px}
+    .prd-web-activity strong{display:block;color:#273a53;font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .prd-web-activity small{display:block;margin-top:5px;color:#8b98a8;font-size:7px}
+    .prd-web-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+    .prd-web-kpis span{padding:5px 2px;border-radius:3px;background:#f6f8fb;color:#52657e;text-align:center;font-size:7px}
+    .prd-web-kpis b{display:block;margin-top:2px;color:#2456e8;font-size:9px}
+    .prd-account-menu{position:absolute;z-index:2;top:0;right:5px;width:150px;border:1px solid #e3e8ef;border-radius:4px;background:#fff;box-shadow:0 8px 22px rgba(36,58,89,.16)}
+    .prd-account-id{padding:8px;color:#71829b;background:#fbfcfe;font-size:8px}
+    .prd-member-strip{padding:10px;color:#70431a;background:linear-gradient(135deg,#fff0d9,#ffc67c);font-size:9px;font-weight:900}
+    .prd-member-strip small{display:block;margin-top:4px;color:#8b6239;font-size:8px;font-weight:700}
+    .prd-member-duration{display:flex;justify-content:space-between;gap:6px;margin-top:8px;padding-top:7px;border-top:1px solid rgba(139,98,57,.22);color:#68451f;font-size:8px}
+    .prd-account-menu ul{margin:0;padding:5px 0;list-style:none}
+    .prd-account-menu li{padding:6px 10px;color:#4c5b70;font-size:9px}
+    .prd-account-menu li:last-child{color:#e15245}
+    .prd-mobile-replica{width:100%;max-width:244px;margin:0 auto;border:5px solid #e7e9ee;border-radius:14px;background:#f4f5f7;box-shadow:0 6px 16px rgba(37,56,84,.12)}
+    .prd-mobile-browser{display:flex;align-items:center;gap:6px;height:23px;padding:0 8px;background:#fff;color:#6c7888;font-size:8px}
+    .prd-mobile-browser strong{flex:1;color:#455469;text-align:center;font-size:9px}
+    .prd-mobile-notice{display:flex;align-items:center;justify-content:space-between;gap:5px;padding:8px;color:#ed6545;background:#fff0ec;font-size:8px}
+    .prd-mobile-notice b{padding:5px 7px;border-radius:4px;color:#fff;background:#f26141;font-size:8px;white-space:nowrap}
+    .prd-mobile-card{position:relative;margin:9px;border-radius:11px;background:linear-gradient(135deg,#22253d,#413754);color:#fff;box-shadow:0 7px 16px rgba(25,28,50,.18)}
+    .prd-mobile-card-top{display:flex;justify-content:space-between;padding:9px 10px;color:#f4d7ac;font-size:9px;font-weight:900}
+    .prd-mobile-card-top span:last-child{padding:4px 6px;border-radius:10px;background:rgba(255,238,204,.16);font-size:8px}
+    .prd-mobile-card-body{padding:6px 10px 12px}
+    .prd-mobile-card h4{margin:0;font-size:16px;line-height:1.1}
+    .prd-mobile-card p{margin:3px 0 0;color:#d8d8e7;font-size:9px}
+    .prd-mobile-plan{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding:8px;border:1px solid rgba(255,255,255,.16);border-radius:6px;background:rgba(255,255,255,.08);font-size:8px}
+    .prd-mobile-plan strong{color:#ffe0b2;font-size:10px}
+    .prd-mobile-content{padding:0 9px 12px}
+    .prd-mobile-white{margin-bottom:8px;padding:10px;border-radius:10px;background:#fff}
+    .prd-mobile-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;color:#303a4c;font-size:11px;font-weight:900}
+    .prd-mobile-title span{color:#60bf5a;font-size:9px}
+    .prd-mobile-balance{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .prd-mobile-balance div{padding:8px 0;border-top:1px solid #eff1f4}
+    .prd-mobile-balance b{display:block;color:#3a57dd;font-size:17px}
+    .prd-mobile-balance span{display:block;margin-top:3px;color:#8490a0;font-size:8px}
+    .prd-mobile-tools{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+    .prd-mobile-tool{min-height:56px;padding:10px;border-radius:8px;background:#edf3ff;color:#385de2;font-size:10px;font-weight:900}
+    .prd-mobile-bottom{display:grid;grid-template-columns:repeat(4,1fr);padding:8px 5px 5px;background:#fff;color:#88909c;text-align:center;font-size:8px}
+    .prd-mobile-bottom b{display:block;width:13px;height:13px;margin:0 auto 4px;border:2px solid #4d5a6c;border-radius:4px;color:transparent}
+    .prd-funds-replica{min-height:350px;background:#fff;color:#4b5667}
+    .prd-funds-topbar{display:flex;align-items:center;gap:7px;height:30px;padding:0 8px;border-bottom:1px solid #edf1f5;background:#fff;white-space:nowrap}
+    .prd-funds-brand{color:#4b79df;font-size:12px;font-weight:900}
+    .prd-funds-ad{flex:1;min-width:34px;height:18px;overflow:hidden;border-radius:10px;color:#fff;background:linear-gradient(90deg,#ff4c43,#ffb94e);font-size:6px;font-weight:900;line-height:18px;text-align:center}
+    .prd-funds-auth{padding:4px 5px;border-radius:3px;color:#e35b43;background:#fff0ec;font-size:6px}
+    .prd-funds-auth b{margin-left:2px;padding:2px 3px;border-radius:2px;color:#fff;background:#f25c40}
+    .prd-funds-user{color:#68788d;font-size:6px}
+    .prd-funds-shell{display:grid;grid-template-columns:64px minmax(0,1fr);min-height:320px}
+    .prd-funds-nav{padding:8px 4px;border-right:1px solid #edf1f5;background:#fbfcfe;color:#6b788a;font-size:7px}
+    .prd-funds-nav span{display:block;padding:6px 4px;border-radius:3px;white-space:nowrap}
+    .prd-funds-nav .active{color:#2563eb;background:#e7efff;font-weight:900}
+    .prd-funds-nav .nav-logo{padding:3px 4px 8px;color:#293c58;font-size:8px;font-weight:900}
+    .prd-funds-main{min-width:0;overflow:hidden;background:#fff}
+    .prd-funds-metrics{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;padding:8px 7px;background:#fff}
+    .prd-funds-metrics>div{min-width:0;min-height:45px;padding:6px 4px;background:linear-gradient(135deg,#f3f6ff,#fbfcff);text-align:center}
+    .prd-funds-metrics>div:nth-child(2){background:linear-gradient(135deg,#eaf8ff,#fbfdff)}
+    .prd-funds-metrics>div:nth-child(3){background:linear-gradient(135deg,#effcfb,#fff)}
+    .prd-funds-metrics>div:nth-child(4){background:linear-gradient(135deg,#fff5e7,#fff)}
+    .prd-funds-metrics>div:nth-child(5){background:linear-gradient(135deg,#effbf1,#fff)}
+    .prd-funds-metrics>div:nth-child(6){background:linear-gradient(135deg,#f7f7f7,#fff)}
+    .prd-funds-metrics>div:nth-child(7){background:linear-gradient(135deg,#f7f0ff,#fff)}
+    .prd-funds-metrics b{display:block;color:#4b5360;font-size:11px;line-height:1.1}
+    .prd-funds-metrics span{display:block;margin-top:4px;color:#59616d;font-size:6px;line-height:1.25}
+    .prd-funds-metrics small{display:block;margin-top:2px;color:#8b919b;font-size:5px;line-height:1.25;white-space:nowrap}
+    .prd-funds-tabs{display:flex;gap:20px;padding:0 9px;border-top:7px solid #eef0f3;border-bottom:1px solid #e6e9ee;color:#657080;font-size:8px}
+    .prd-funds-tabs span{padding:7px 0 6px}
+    .prd-funds-tabs .active{color:#2563eb;border-bottom:2px solid #2563eb;font-weight:900}
+    .prd-funds-alert{margin:7px 9px;padding:6px 7px;color:#6d5c32;border:1px solid #f2c873;background:#fff9e7;font-size:7px;line-height:1.5}
+    .prd-funds-alert b{color:#e15c42}
+    .prd-funds-filter{display:grid;grid-template-columns:1.15fr 1.1fr 1.25fr auto;gap:5px;padding:0 9px 4px}
+    .prd-funds-filter label{display:flex;align-items:center;gap:3px;min-width:0;color:#697687;font-size:6px;white-space:nowrap}
+    .prd-funds-filter label:nth-child(n+5){margin-top:2px}
+    .prd-funds-filter .filter-control{display:block;min-width:0;width:100%;height:20px;padding:5px;border:1px solid #dce3eb;background:#fff;color:#a1a9b4;font-size:6px;line-height:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .prd-funds-filter button{height:20px;padding:0 7px;border:0;border-radius:3px;color:#fff;background:#2f57ed;font-size:7px}
+    .prd-funds-summary{padding:2px 9px 5px;color:#697687;font-size:7px}
+    .prd-funds-table{margin:0 9px;border:1px solid #e8edf3;overflow:hidden}
+    .prd-funds-row{display:grid;grid-template-columns:.7fr .95fr 1.35fr 1.25fr .78fr .85fr .9fr 1.05fr;gap:3px;padding:7px 4px;border-bottom:1px solid #edf1f5;font-size:6px;line-height:1.4}
+    .prd-funds-row:last-child{border-bottom:0}
+    .prd-funds-row.head{color:#8491a2;background:#fafafa;font-weight:900}
+    .prd-funds-row span{min-width:0;color:#62758e;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .prd-funds-row .amount{color:#4abf21;font-weight:900;white-space:normal}
+    .prd-funds-row .amount.positive{color:#f05249}
+    .prd-funds-row .amount small{display:inline;color:#8b919b;font-size:5px;font-weight:400}
+    .prd-console-replica{min-height:350px;background:#f7f9fc}
+    .prd-console-manage-replica{display:grid;grid-template-columns:46px minmax(0,1fr);min-height:420px;background:#fff;color:#4e5867}
+    .prd-manage-sidebar{padding:7px 3px;border-right:1px solid #e7ebf0;background:#fff;color:#6e7885;font-size:6px}
+    .prd-manage-sidebar strong{display:block;padding:2px 2px 9px;color:#2d3643;font-size:7px;line-height:1.25;white-space:nowrap;overflow:hidden}
+    .prd-manage-sidebar span{display:block;padding:6px 2px;border-radius:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .prd-manage-sidebar span.active{color:#2f75ed;background:#edf4ff;font-weight:900}
+    .prd-manage-main{min-width:0;overflow:hidden;background:#fff}
+    .prd-manage-topnav{display:flex;align-items:center;gap:7px;height:20px;padding:0 7px;background:#111;color:#fff;font-size:6px;font-weight:700;white-space:nowrap;overflow:hidden}
+    .prd-manage-topnav span{overflow:hidden;text-overflow:ellipsis}
+    .prd-manage-star{margin-left:auto;color:#fff;font-size:12px;line-height:1}
+    .prd-manage-titlebar{display:flex;align-items:center;justify-content:space-between;height:24px;padding:0 10px;color:#fff;background:#4298f2;font-size:10px}
+    .prd-manage-titlebar strong{font-size:11px}
+    .prd-manage-titlebar span{font-size:7px}
+    .prd-manage-content{padding:8px 7px 10px;background:#fff}
+    .prd-manage-filters{display:grid;gap:5px}
+    .prd-manage-filter-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;align-items:center}
+    .prd-manage-filter{display:grid;grid-template-columns:auto minmax(0,1fr);gap:3px;align-items:center;min-width:0;color:#536172;font-size:6px;white-space:nowrap}
+    .prd-manage-field{display:flex;align-items:center;justify-content:space-between;min-width:0;height:18px;padding:0 5px;border:1px solid #d9e1ea;border-radius:2px;color:#a2adba;background:#fff;font-size:6px;overflow:hidden}
+    .prd-manage-field strong{color:#596879;font-weight:700}
+    .prd-manage-field i{color:#b8c1cb;font-style:normal;margin-left:3px}
+    .prd-manage-radio{display:flex;align-items:center;gap:7px;height:18px;color:#657286;font-size:6px}
+    .prd-manage-radio b{display:inline-flex;align-items:center;gap:2px;font-weight:700}
+    .prd-manage-radio b:before{content:"";width:6px;height:6px;border:1px solid #cbd4df;border-radius:50%;background:#fff}
+    .prd-manage-radio b.active{color:#328af1}
+    .prd-manage-radio b.active:before{border:2px solid #4b9df5}
+    .prd-manage-actions{display:flex;gap:6px;padding:2px 0 4px 10px}
+    .prd-manage-actions button{height:19px;padding:0 8px;border:0;border-radius:2px;color:#fff;background:#4298f2;font-size:6px;font-weight:700;white-space:nowrap}
+    .prd-manage-summary{display:flex;gap:18px;padding:0 0 8px;color:#4e5867;font-size:6px;white-space:nowrap}
+    .prd-manage-summary b{color:#ff4747;font-weight:700}
+    .prd-manage-table{border:1px solid #e4eaf1;overflow:hidden;background:#fff}
+    .prd-manage-row{display:grid;grid-template-columns:.44fr 1.1fr .78fr .98fr .76fr .72fr 1fr;gap:0;min-height:35px;border-bottom:1px solid #e9eef4;font-size:6px;line-height:1.35}
+    .prd-manage-row:last-child{border-bottom:0}
+    .prd-manage-row.head{min-height:28px;color:#8994a3;background:#fafbfc;font-weight:900}
+    .prd-manage-row>span{min-width:0;padding:7px 4px;border-right:1px solid #edf1f5;overflow:hidden;text-overflow:ellipsis}
+    .prd-manage-row>span:last-child{border-right:0}
+    .prd-manage-row .merchant{color:#ff3f7f;white-space:normal}
+    .prd-manage-row .merchant strong{display:block;color:#ff3f7f;font-weight:700}
+    .prd-manage-row .merchant small{display:block;margin-top:2px;color:#5c6674;font-size:5px}
+    .prd-manage-type{display:inline-flex;align-items:center;min-height:16px;padding:0 5px;border-radius:3px;color:#315fe9;background:#e9efff;font-size:6px;font-weight:900;white-space:nowrap}
+    .prd-manage-type.long{color:#16866c;background:#e5f8ef}
+    .prd-manage-row .prd-manage-type + small{display:block;margin-top:3px;color:#7c8b9c;font-size:5px;white-space:nowrap}
+    .prd-manage-link{color:#ff3f7f;white-space:normal}
+    .prd-manage-link small{display:block;margin-top:4px;color:#ff3f7f;font-size:5px}
+    .prd-console-top{display:flex;align-items:center;gap:10px;height:27px;padding:0 8px;border-bottom:1px solid #e8edf3;background:#fff;color:#718198;font-size:8px}
+    .prd-console-top strong{color:#2e73ed;font-size:10px}
+    .prd-console-top span{padding:7px 0}
+    .prd-console-top .active{color:#2563eb;border-bottom:2px solid #2563eb;font-weight:900}
+    .prd-console-body{padding:0;background:#fff}
+    .prd-recharge-modal{min-height:350px;border:0;border-radius:0;background:#fff;box-shadow:none}
+    .prd-modal-title{display:flex;justify-content:center;align-items:center;position:relative;height:31px;padding:0 10px;border-bottom:1px solid #edf1f5;color:#273a53;font-size:11px}
+    .prd-modal-title strong{font-weight:700}
+    .prd-modal-title span{position:absolute;right:9px;top:8px;color:#9aa8b8;font-size:13px;line-height:12px}
+    .prd-modal-body{padding:8px 11px 3px;color:#556477}
+    .prd-modal-line{display:grid;grid-template-columns:48px minmax(0,1fr);gap:5px;align-items:center;margin-bottom:6px}
+    .prd-modal-line>label,.prd-modal-section>label{color:#536276;font-size:7px;text-align:right;white-space:nowrap}
+    .prd-modal-control{display:flex;align-items:center;justify-content:space-between;min-width:0;height:20px;padding:0 6px;border:1px solid #d4dce6;border-radius:3px;color:#536276;background:#fff;font-size:7px;white-space:nowrap;overflow:hidden}
+    .prd-modal-control i{color:#aab4c1;font-style:normal;font-size:9px}
+    .prd-account-search{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px}
+    .prd-account-search input{min-width:0;height:20px;padding:0 6px;border:1px solid #d4dce6;border-radius:3px;color:#536276;background:#fff;font-size:7px}
+    .prd-account-search button{height:20px;padding:0 7px;border:0;border-radius:3px;color:#fff;background:#4388f2;font-size:7px;font-weight:700}
+    .prd-store-card{padding:6px 7px;border:1px solid #4388f2;border-radius:4px;background:#fff;color:#536276}
+    .prd-store-card>div{display:flex;align-items:center;gap:5px}
+    .prd-store-card strong{color:#273a53;font-size:9px}
+    .prd-store-card em{padding:3px 5px;border-radius:3px;color:#697585;background:#f1f2f4;font-size:6px;font-style:normal}
+    .prd-store-card p{margin:4px 0 0;color:#8c96a4;font-size:6px;white-space:nowrap}
+    .prd-modal-section{display:grid;grid-template-columns:48px minmax(0,1fr);gap:5px;margin-top:12px;margin-bottom:8px}
+    .prd-recharge-tabs{display:grid;grid-template-columns:repeat(3,1fr);height:28px}
+    .prd-recharge-tabs span{display:flex;align-items:center;justify-content:center;gap:4px;border:1px solid #e1e5ea;border-right:0;color:#4e5968;background:#f3f3f3;font-size:8px}
+    .prd-recharge-tabs span:first-child{border-color:#4388f2;background:#fff;color:#273a53}
+    .prd-recharge-tabs span:last-child{border-right:1px solid #e1e5ea}
+    .prd-tab-icon{font-size:10px;font-weight:900}
+    .prd-tab-icon.blue{color:#486ff2}.prd-tab-icon.red{color:#ff5f63}.prd-tab-icon.orange{color:#f9a83a}
+    .prd-recharge-panel{grid-column:2;padding:8px 10px 8px;border:1px solid #4388f2;border-top:0}
+    .prd-recharge-panel>label{display:grid;grid-template-columns:40px minmax(0,1fr);gap:5px;align-items:center;color:#536276;font-size:7px}
+    .prd-recharge-panel .prd-modal-control{height:20px}
+    .prd-modal-tags{display:flex;gap:8px;margin:8px 0 8px 40px}
+    .prd-modal-tag{display:flex;height:23px;border:1px solid #3765ef;border-radius:4px;overflow:hidden;color:#3765ef;font-size:7px}
+    .prd-modal-tag b{display:flex;align-items:center;padding:0 6px;color:#fff;background:#4267f4;font-weight:700}
+    .prd-modal-tag span{display:flex;align-items:center;padding:0 7px;background:#fff}
+    .prd-modal-tag.orange{border-color:#f27620;color:#f27620}.prd-modal-tag.orange b{background:#f68127}
+    .prd-modal-gift{display:grid;grid-template-columns:40px 1fr;gap:5px;padding-top:7px;border-top:1px solid #e6e9ed;color:#536276;font-size:7px}
+    .prd-modal-gift-control{display:flex;height:23px;border:1px solid #d3d9e1;border-radius:4px;overflow:hidden;color:#536276}
+    .prd-modal-gift-control b{display:flex;align-items:center;padding:0 6px;background:#ececec;font-size:7px}
+    .prd-modal-gift-control span{display:flex;align-items:center;padding:0 7px;color:#b2bac4;font-size:7px}
+    .prd-modal-rate-note{margin:8px 0 0 40px;padding-top:7px;border-top:1px solid #e6e9ed;color:#ee4b4b;font-size:8px;font-weight:900;line-height:1.4}
+    .prd-modal-two{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 6px 53px}
+    .prd-modal-two .prd-modal-line{grid-template-columns:43px minmax(0,1fr);margin-bottom:0}
+    .prd-modal-two .prd-modal-line>label{text-align:right}
+    .prd-modal-foot{display:flex;justify-content:flex-end;gap:7px;padding:8px 11px 10px}
+    .prd-modal-foot button{height:21px;padding:0 8px;border:1px solid #d4dce6;border-radius:3px;color:#536276;background:#fff;font-size:7px}
+    .prd-modal-foot button.primary{border-color:#4388f2;color:#fff;background:#4388f2}
+    .prd-orders-replica{min-height:300px;background:#f7f9fc}
+    .prd-order-filter{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;padding:7px;background:#fff;border-bottom:1px solid #e9eef4}
+    .prd-order-filter span{height:19px;padding:5px;border:1px solid #dce5ee;border-radius:3px;color:#8492a4;background:#fff;font-size:7px}
+    .prd-order-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:7px}
+    .prd-order-kpis div{padding:6px;border-radius:4px;background:#eef4ff}
+    .prd-order-kpis div:nth-child(2){background:#eef9fc}
+    .prd-order-kpis div:nth-child(3){background:#f1fbf7}
+    .prd-order-kpis div:nth-child(4){background:#fff6e8}
+    .prd-order-kpis b{display:block;color:#293b54;font-size:12px}
+    .prd-order-kpis span{display:block;margin-top:3px;color:#8390a2;font-size:7px}
+    .prd-order-table{margin:0 7px;border:1px solid #e1e8ef;border-radius:4px;overflow:hidden;background:#fff}
+    .prd-order-row{display:grid;grid-template-columns:.55fr 1fr 1.25fr .7fr .8fr 1fr;gap:3px;padding:6px 4px;border-bottom:1px solid #edf1f5;font-size:6px;line-height:1.35}
+    .prd-order-row:last-child{border-bottom:0}
+    .prd-order-row.head{color:#8491a2;background:#f8fafc;font-weight:900}
+    .prd-order-row span{min-width:0;color:#62758e;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .prd-order-row .ok{color:#159477;font-weight:900}
+    /* Prototype navigation and grouped page references. */
+    .prd-app-shell{display:grid;grid-template-columns:218px minmax(0,1fr);max-width:1498px;margin:0 auto;min-height:calc(100vh - 72px)}
+    .prd-prototype-nav{position:sticky;top:0;height:calc(100vh - 72px);display:flex;flex-direction:column;padding:20px 14px;background:#111a2c;color:#eef4ff}
+    .prd-prototype-brand{display:flex;align-items:center;gap:9px;padding:4px 10px 23px;font-size:15px;font-weight:900}
+    .prd-prototype-brand span{display:inline-flex;align-items:center;justify-content:center;width:29px;height:29px;border-radius:8px;color:#fff;background:linear-gradient(135deg,#2f74ff,#63bbff);font-size:10px}
+    .prd-prototype-brand strong{letter-spacing:.02em}
+    .prd-prototype-caption{padding:0 10px 10px;color:#7d8da6;font-size:11px;font-weight:700}
+    .prd-prototype-links{display:grid;gap:4px}
+    .prd-prototype-link{display:grid;grid-template-columns:8px minmax(0,1fr);column-gap:8px;align-items:center;min-height:48px;padding:7px 10px;border:0;border-radius:8px;color:#aab8cd;background:transparent;text-decoration:none;font-size:12px;font-weight:800}
+    .prd-prototype-link:before{content:"";grid-row:1 / span 2;width:5px;height:5px;border-radius:50%;background:#667892}
+    .prd-prototype-link strong{font-size:12px;line-height:1.3}
+    .prd-prototype-link small{display:block;margin-top:2px;color:#7587a2;font-size:10px;font-weight:500;line-height:1.3}
+    .prd-prototype-link:hover{color:#fff;background:#1a2944}
+    .prd-prototype-link.active{color:#fff;background:#213557;box-shadow:inset 2px 0 0 #4c8dff}
+    .prd-prototype-link.active:before{background:#6ca4ff;box-shadow:0 0 0 4px rgba(108,164,255,.12)}
+    .prd-prototype-divider{height:1px;margin:22px 10px 18px;background:#26354b}
+    .prd-prototype-foot{margin-top:auto;padding:0 10px;color:#c9d6e9;font-size:11px;line-height:1.7}
+    .prd-prototype-foot strong{display:block;color:#edf4ff;font-size:12px}
+    .prd-prototype-foot span{display:block;margin-top:4px;color:#7587a2;font-size:10px}
+    .prd-main{min-width:0;max-width:none;width:100%}
+    .prd-reference-group th{padding:12px 14px 9px;border-right:0;border-bottom:1px solid #d6e1ec;background:#f3f5fa;color:#203652}
+    .prd-reference-group .group-index{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;margin-right:8px;border-radius:6px;color:#fff;background:#2563eb;font-size:10px;font-weight:900}
+    .prd-reference-group strong{font-size:13px}
+    .prd-reference-group small{margin-left:9px;color:#7b8ca1;font-size:10px;font-weight:500}
+    .prd-reference-group[id]{scroll-margin-top:20px}
+    .prd-page-alias{display:inline-block;margin-top:5px;color:#7b8ca1;font-size:10px;font-weight:600;line-height:1.4}
+    .prd-h5-funds-replica{width:100%;max-width:260px;margin:0 auto;border:5px solid #e7e9ee;border-radius:14px;background:#f0f1f3;box-shadow:0 6px 16px rgba(37,56,84,.12)}
+    .prd-h5-funds-replica *{box-sizing:border-box}
+    .prd-h5-funds-chrome{display:flex;align-items:center;gap:5px;height:22px;padding:0 7px;background:#f1f2f4;color:#5e6670;font-size:7px}
+    .prd-h5-funds-chrome i{width:5px;height:5px;border-radius:50%;background:#ff5e55;box-shadow:8px 0 #ffbb2e,16px 0 #22c55e}
+    .prd-h5-funds-chrome strong{flex:1;margin-left:15px;color:#4d5661;text-align:center;font-size:8px}
+    .prd-h5-funds-top{display:flex;align-items:center;justify-content:space-between;padding:8px 10px 5px;background:#fff;color:#293442;font-size:9px}
+    .prd-h5-funds-top strong{color:#2563eb;font-size:10px;font-weight:500}
+    .prd-h5-funds-tabs{display:grid;grid-template-columns:repeat(3,1fr);padding:7px 0 0;background:#fff;color:#afb3b9;font-size:9px;text-align:center}
+    .prd-h5-funds-tabs span{padding:6px 0 7px}
+    .prd-h5-funds-tabs .active{color:#2563eb;border-bottom:2px solid #2563eb}
+    .prd-h5-funds-list{padding:8px 6px;background:#f0f1f3}
+    .prd-h5-funds-card{position:relative;min-height:74px;margin-bottom:7px;padding:9px 7px 8px 40px;border-radius:9px;background:#fff;color:#555d68}
+    .prd-h5-funds-card:last-child{margin-bottom:0}
+    .prd-h5-funds-icon{position:absolute;left:8px;top:26px;display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;color:#fff;background:#3778f4;font-size:11px;font-style:normal;font-weight:900}
+    .prd-h5-funds-card.income .prd-h5-funds-icon{background:#ff5722}
+    .prd-h5-funds-title{padding-right:38px;color:#343b44;font-size:10px;line-height:1.35;white-space:nowrap}
+    .prd-h5-funds-title small{color:#6e737a;font-size:8px}
+    .prd-h5-funds-product{margin-top:5px;color:#656d77;font-size:8px}
+    .prd-h5-funds-time{margin-top:6px;color:#9da2a8;font-size:8px}
+    .prd-h5-funds-balance{position:absolute;right:7px;bottom:9px;color:#8b9198;font-size:8px;white-space:nowrap}
+    .prd-h5-funds-amount{position:absolute;right:7px;top:27px;color:#343a42;font-size:15px;line-height:1.1}
+    .prd-h5-funds-card.income .prd-h5-funds-amount{color:#f22626}
+    .prd-h5-funds-amount small{margin-left:3px;color:#969ba2;font-size:8px}
+    @media(max-width:900px){
+      .prd-app-shell{grid-template-columns:1fr;min-height:0}
+      .prd-prototype-nav{position:sticky;top:0;z-index:20;height:auto;display:block;padding:10px 12px}
+      .prd-prototype-brand{display:inline-flex;padding:0 8px 8px}
+      .prd-prototype-caption,.prd-prototype-divider,.prd-prototype-foot{display:none}
+      .prd-prototype-links{display:flex;gap:5px;overflow-x:auto}
+      .prd-prototype-link{min-width:150px;min-height:40px;padding:6px 9px}
+      .prd-reference-shell{overflow-x:auto}
+    }
+    @media(max-width:560px){
+      .prd-replica{font-size:9px}
+      .prd-reference-prototype{min-width:300px}
+    }
+    .prd-app-shell{display:grid;grid-template-columns:218px minmax(0,1fr);max-width:1498px;margin:0 auto;min-height:calc(100vh - 72px)}
+    .prd-main{max-width:none;padding:0 16px}
+    @media(max-width:900px){
+      .prd-app-shell{grid-template-columns:1fr;min-height:0}
+      .prd-main{padding:0}
+    }
   </style>
 </head>
 <body>
+  <main class="prd-panel" id="prd-view">
+    <div class="prd-main-top document-switcher">
+      <div class="prd-version-tabs" role="tablist" aria-label="文档版本切换">
+        <button class="doc-tab active" type="button" data-doc-tab="prd" aria-selected="true">MVP 预充值套餐</button>
+        <button class="doc-tab" type="button" data-doc-tab="plan" aria-selected="false">方案计划 v1.0</button>
+      </div>
+      <div class="prd-main-meta"><span>内部评审</span><span>最后更新：2026-08-18</span></div>
+    </div>
+    <div class="prd-app-shell">
+      <aside class="prd-prototype-nav" aria-label="原型导航">
+        <div class="prd-prototype-brand"><span>PRD</span><strong>预充值套餐</strong></div>
+        <div class="prd-prototype-caption">原型导航</div>
+        <nav class="prd-prototype-links">
+          <a class="prd-prototype-link active" href="#prototype-pc" data-prototype-nav="pc"><strong>PC 商家后台</strong><small>个人中心 · 资金管理</small></a>
+          <a class="prd-prototype-link" href="#prototype-h5" data-prototype-nav="h5"><strong>H5 商家后台</strong><small>会员中心 · 资金明细</small></a>
+          <a class="prd-prototype-link" href="#prototype-console" data-prototype-nav="console"><strong>总控台</strong><small>商家管理 · 充值弹窗 · 充值订单</small></a>
+        </nav>
+        <div class="prd-prototype-divider"></div>
+        <div class="prd-prototype-foot"><strong>MVP 预充值方案</strong><span>1688 元 · 软件长期有效 · 认证后按 5% 费率收款</span></div>
+      </aside>
+      <div class="prd-main">
+        <div class="prd-container">
+      <section class="prd-hero">
+        <div class="prd-hero-inner">
+          <div>
+            <div class="prd-kicker">PRODUCT REQUIREMENT DOCUMENT · MVP</div>
+            <h1>预充值套餐接入<span>商家后台与总控台 PRD</span></h1>
+            <p class="prd-hero-copy">本需求新增一种由销售或客服人工引导、由总控台完成充值的套餐类型：商家获得软件长期有效权益，并获得 1688 元手续费抵扣额度。收款能力以商户号认证为前置条件，收款按 5% 费率执行；抵扣额度使用完后，软件权益和认证收款能力继续有效，后续按 5% 费率完成收款。</p>
+          </div>
+          <div class="prd-hero-side">
+            <div class="prd-hero-metric"><strong>1688 元</strong><span>首期固定预充值金额</span></div>
+            <div class="prd-hero-metric"><strong>5%</strong><span>认证后收款费率</span></div>
+            <div class="prd-hero-metric"><strong>长期有效</strong><span>软件使用权益</span></div>
+            <div class="prd-hero-metric"><strong>人工开通</strong><span>总控台承接成交结果</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="prd-reference-section">
+        <p class="prd-reference-intro">本 PRD 按“页面 / 说明 / 截图”组织需求，描述 MVP 对现有页面的实际承载方式。成交由销售或客服通过微信人工沟通，总控台使用收钱码及充值报账完成开通；订单类型统一为“软件无限时长 + 1688 元充值抵扣费”。长期会员版权益提交后即时生效，软件使用期限为长期有效，1688 元用于抵扣额外 4% 平台服务费；收款能力以商户号认证为开启条件，认证后按 5% 费率收款。订单作废、退款等异常场景由总控台人工处理，并保留订单操作记录。</p>
+        <div class="prd-reference-shell">
+          <table class="prd-reference-table">
+            <thead><tr><th>页面</th><th>说明</th><th>截图</th></tr></thead>
+            <tbody>
+              <tr class="prd-reference-group" id="prototype-pc"><th colspan="3"><span class="group-index">01</span><strong>PC 商家后台</strong><small>个人中心、资金管理</small></th></tr>
+              <tr>
+                <td>商家后台 · 个人中心（桌面端）</td>
+                <td><h3>会员身份展示</h3><ul><li>复刻线上右上角账号菜单，展示商家账号、会员身份和套餐信息。</li><li>普通 1688 元/年会员展示当前到期日期；长期会员版展示“【1688】长期会员版”和“软件使用：长期有效”。</li><li>会员权益与商户认证状态分开呈现：长期会员版决定软件使用期限和抵扣额度，收款能力的开启条件仍为商户号认证，认证完成后按 5% 费率收款。</li></ul><h3>交互说明</h3><ul><li>用户点击右上角头像后查看会员卡信息；当套餐发生作废或退款时，会员卡状态跟随总控台订单结果更新。</li></ul></td>
+                <td><div class="prd-reference-shot prd-reference-prototype"><div class="prd-replica prd-web-replica">
+                  <div class="prd-web-top"><strong class="prd-web-brand">商家岛</strong><span class="prd-web-ad">可门槛 一键生成专业营销海报</span><span class="prd-web-auth">当前未认证商户号 <b>去认证 &gt;</b></span><span class="prd-web-user">头像 小戴视频店⌄</span></div>
+                  <div class="prd-web-layout">
+                    <aside class="prd-web-nav"><strong>商家中心</strong><span>首页推荐</span><span class="active">活动管理</span><span>客户管理</span><span>订单管理</span><span>资金管理</span><span>投诉处理</span><span>更多营销工具</span><span>账号信息</span></aside>
+                    <div class="prd-web-main">
+                      <div class="prd-web-banner">累计获客 <b>9576</b></div>
+                      <div class="prd-web-filters"><div class="prd-web-select">活动名称：请选择活动</div><div class="prd-web-select">活动类型：全部</div><div class="prd-web-select">活动状态：全部</div></div>
+                      <div class="prd-web-activity"><div class="prd-web-cover">520</div><div><strong>【少儿英语】520表白周 百万宠粉节</strong><small>类型：小程序拼团 · 已结束 · 2026-06-17</small></div><div class="prd-web-kpis"><span>浏览人数<b>4</b></span><span>分享人数<b>1</b></span><span>支付总额<b>0</b></span><span>报名人数<b>3</b></span></div></div>
+                      <div class="prd-web-activity"><div class="prd-web-cover" style="background:linear-gradient(145deg,#ffbf5c,#f46b47)">热</div><div><strong>梦金园补贴活动大展销</strong><small>类型：小程序报报名 · 已结束</small></div><div class="prd-web-kpis"><span>浏览人数<b>1</b></span><span>分享人数<b>0</b></span><span>支付总额<b>0</b></span><span>报名人数<b>0</b></span></div></div>
+                    </div>
+                    <div class="prd-account-menu">
+                      <div class="prd-account-id">商家ID: 286101</div>
+                      <div class="prd-member-strip">商家岛会员<small>【1688】长期会员版</small><div class="prd-member-duration"><span>软件时长</span><strong>长期有效</strong></div></div>
+                      <ul><li>切换店铺</li><li>修改密码</li><li>退出</li></ul>
+                    </div>
+                  </div>
+                </div></div></td>
+              </tr>
+              <tr>
+                <td>商家后台 · 资金管理</td>
+                <td><h3>页面结构</h3><ul><li>按照线上三方版 PC 资金页面还原顶部品牌区、左侧业务导航、7 个资金指标、余额明细 Tab、认证提示、筛选区和资金明细表。</li><li>普通 1688 元/年会员沿用原有资金口径；长期会员版在资金页呈现 5% 收款手续费率、累计手续费及剩余抵扣额度，软件长期有效状态在个人中心展示。</li></ul><h3>手续费展示</h3><ul><li>“累计手续费”指标下补充“已抵扣：13.8；剩余可抵扣：2986.2”，抵扣信息作为该指标的辅助说明，不新增独立字段。</li><li>参考线上三方版资金明细的行内表达，在“金额（元）”原有列中展示“−0.21 元（抵扣 0.6）”；抵扣额用尽后，金额单元格继续展示标准手续费金额，收款仍按 5% 费率执行。</li></ul></td>
+                <td><div class="prd-reference-shot prd-reference-prototype"><div class="prd-replica prd-funds-replica">
+                  <div class="prd-funds-topbar"><strong class="prd-funds-brand">商家岛</strong><span class="prd-funds-ad">可门槛 一键生成专业营销海报</span><span class="prd-funds-auth">当前未认证商户号 <b>去认证 &gt;</b></span><span class="prd-funds-user">专属客户经理　小戴视频店⌄</span></div>
+                  <div class="prd-funds-shell">
+                    <aside class="prd-funds-nav"><div class="nav-logo">商家中心</div><span>首页推荐</span><span>活动管理</span><span>客户管理</span><span>订单管理</span><span class="active">资金管理</span><span>投诉处理</span><span>更多营销工具</span><span>账号信息</span></aside>
+                    <div class="prd-funds-main">
+                      <div class="prd-funds-metrics"><div><b>10.57</b><span>累计收款(元) ⓘ</span></div><div><b>0</b><span>可提现余额(元) ⓘ</span></div><div><b>0.01</b><span>待结算金额(元) ⓘ</span></div><div><b>2.03</b><span>成功提现(元) ⓘ</span><small>提现中0</small></div><div><b>8.43</b><span>累计分销佣金(元) ⓘ</span></div><div><b>0</b><span>累计员工奖励(元)</span></div><div><b>4.83</b><span>累计手续费(元) ⓘ</span><small>已抵扣：13.8；剩余可抵扣：2986.2</small></div></div>
+                      <div class="prd-funds-tabs"><span class="active">余额明细</span><span>待结算明细</span><span>提现明细</span></div>
+                      <div class="prd-funds-alert">认证完成前有 1 笔订单共 0 元，需核销后才能结算　<b>去查看 &gt;</b></div>
+                      <div class="prd-funds-filter"><label>订单编号：<span class="filter-control">请输入订单编号　⌕</span></label><label>订单来源：<span class="filter-control">请选择订单来源　⌄</span></label><label>选择活动：<span class="filter-control">请选择活动　⌄</span></label><button>导出Excel</button><label>商品名称：<span class="filter-control">请输入商品名称　⌕</span></label><label>交易方：<span class="filter-control">请输入交易方名称或ID　⌕</span></label><label>资金类型：<span class="filter-control">请选择　⌄</span></label><label>交易时间：<span class="filter-control">开始日期　～　结束日期</span></label></div>
+                      <div class="prd-funds-summary">筛选统计：119 条数据；其中 +22.73 元；-22.73 元；合计 0 元；</div>
+                      <div class="prd-funds-table"><div class="prd-funds-row head"><span>订单编号</span><span>资金类型</span><span>来源</span><span>商品名称</span><span>金额(元)</span><span>交易后余额(元)</span><span>交易方</span><span>交易时间</span></div><div class="prd-funds-row"><span>41233842</span><span>手续费</span><span>活动订单</span><span>萌娃成长计划</span><span class="amount">-0.21<small>（抵扣0.6）</small></span><span>522.87</span><span>杨<br>ID:146844295</span><span>2026-08-12 10:37:23</span></div><div class="prd-funds-row"><span>41233842</span><span>收入-定金</span><span>活动订单</span><span>萌娃成长计划</span><span class="amount positive">+29.9</span><span>523.08</span><span>杨<br>ID:146844295</span><span>2026-08-12 10:37:23</span></div><div class="prd-funds-row"><span>41233568</span><span>员工奖励</span><span>活动订单</span><span>萌娃成长计划</span><span class="amount">-6</span><span>493.18</span><span>YING顾<br>ID:181742366</span><span>2026-08-12 10:19:02</span></div></div>
+                    </div>
+                  </div>
+                </div></div></td>
+              </tr>
+              <tr class="prd-reference-group" id="prototype-h5"><th colspan="3"><span class="group-index">02</span><strong>H5 商家后台</strong><small>会员中心、资金明细</small></th></tr>
+              <tr>
+                <td>商家后台 · 个人中心（H5）</td>
+                <td><h3>会员卡展示</h3><ul><li>复刻 H5 商家中心的顶部认证提示、会员卡、收益卡和底部导航。</li><li>长期会员版在会员卡内以“软件时长：长期有效”为主信息，并同时展示“【1688】长期会员版”套餐身份；认证状态单独展示，避免将软件使用权与收款能力混为一体。</li><li>完成商户号认证后，收益区域展示 5% 收款费率；认证状态变化只影响收款能力，不改变软件长期有效状态。</li></ul><h3>普通年费展示</h3><ul><li>普通会员沿用“剩余时长：135 天”等到期倒计时表达，并展示当前年费会员权益。</li></ul></td>
+                <td><div class="prd-reference-shot prd-reference-prototype"><div class="prd-replica prd-mobile-replica">
+                  <div class="prd-mobile-browser"><span>返回</span><strong>商家中心</strong><span>搜索</span></div>
+                  <div class="prd-mobile-notice"><span>当前未认证商户号，活动无法收款</span><b>去认证 &gt;</b></div>
+                  <div class="prd-mobile-card">
+                    <div class="prd-mobile-card-top"><span>商家岛 VIP</span><span>长期有效</span></div>
+                    <div class="prd-mobile-card-body"><h4>小戴视频店</h4><p>18667015630</p><div class="prd-mobile-plan"><span>【1688】长期会员版</span><strong>软件时长：长期有效</strong></div></div>
+                  </div>
+                  <div class="prd-mobile-content">
+                    <div class="prd-mobile-white"><div class="prd-mobile-title"><span style="color:#303a4c;font-size:14px">我的收益</span><span>✓ 第三方持牌机构保障</span></div><div class="prd-mobile-balance"><div><b>0</b><span>可提现余额</span></div><div><b>0.01</b><span>待结算金额</span></div><div><b>10.57</b><span>累计收款</span></div><div><b>5%</b><span>当前收款费率</span></div></div></div>
+                    <div class="prd-mobile-white"><div class="prd-mobile-title"><span style="color:#303a4c;font-size:14px">核销系统</span><span>一键查询用户权益</span></div><div class="prd-mobile-tools"><div class="prd-mobile-tool">活动核销设置</div><div class="prd-mobile-tool">客户出示码</div><div class="prd-mobile-tool">用户权益管理</div><div class="prd-mobile-tool">全部订单</div></div></div>
+                  </div>
+                  <div class="prd-mobile-bottom"><span><b aria-hidden="true"></b>首页</span><span><b aria-hidden="true"></b>创建活动</span><span><b aria-hidden="true"></b>活动管理</span><span><b aria-hidden="true"></b>账号</span></div>
+                </div></div></td>
+              </tr>
+              <tr>
+                <td>商家后台 · 资金明细（H5）</td>
+                <td><h3>明细展示</h3><ul><li>沿用 H5 资金明细的卡片式列表结构，展示资金类型、订单说明、商品、金额、交易时间和交易后余额。</li><li>手续费记录沿用线上三方版 H5 的行内表达，在金额位置展示“−0.21（抵扣0.6）”，抵扣金额与手续费金额保持同一条明细记录。</li><li>抵扣额度用尽后，手续费卡片继续展示实际手续费金额，抵扣说明不再增加；收款能力和软件使用状态按照当前会员与认证状态执行。</li></ul><h3>字段约束</h3><ul><li>资金明细不拆出独立抵扣字段；普通收款、佣金、员工奖励和手续费均沿用现有明细卡片结构。</li></ul></td>
+                <td><div class="prd-reference-shot prd-reference-prototype"><div class="prd-h5-funds-replica">
+                  <div class="prd-h5-funds-chrome"><i aria-hidden="true"></i><span>‹</span><span>›</span><span>↻</span><strong>商家中心</strong><span>⌕</span><span>•••</span></div>
+                  <div class="prd-h5-funds-top"><span>‹ 返回上级</span><strong>商家中心</strong></div>
+                  <div class="prd-h5-funds-tabs"><span class="active">余额明细</span><span>待结算明细</span><span>提现明细</span></div>
+                  <div class="prd-h5-funds-list">
+                    <div class="prd-h5-funds-card"><i class="prd-h5-funds-icon">佣</i><div class="prd-h5-funds-title">分销佣金 <small>(订单金额佣金扣除)</small></div><div class="prd-h5-funds-product">商品一</div><div class="prd-h5-funds-time">2026-08-12 10:37:23</div><div class="prd-h5-funds-amount">0</div><div class="prd-h5-funds-balance">交易后余额：516.87</div></div>
+                    <div class="prd-h5-funds-card"><i class="prd-h5-funds-icon">佣</i><div class="prd-h5-funds-title">员工奖励 <small>(订单金额员工奖励扣除)</small></div><div class="prd-h5-funds-product">商品一</div><div class="prd-h5-funds-time">2026-08-12 10:37:23</div><div class="prd-h5-funds-amount">-6</div><div class="prd-h5-funds-balance">交易后余额：516.87</div></div>
+                    <div class="prd-h5-funds-card fee"><i class="prd-h5-funds-icon">费</i><div class="prd-h5-funds-title">手续费 <small>(订单金额结算手续费)</small></div><div class="prd-h5-funds-product">商品一</div><div class="prd-h5-funds-time">2026-08-12 10:37:23</div><div class="prd-h5-funds-amount">-0.21 <small>(抵扣0.6)</small></div><div class="prd-h5-funds-balance">交易后余额：522.87</div></div>
+                    <div class="prd-h5-funds-card income"><i class="prd-h5-funds-icon">收</i><div class="prd-h5-funds-title">收入-定金 <small>(订单金额解冻)</small></div><div class="prd-h5-funds-product">商品一</div><div class="prd-h5-funds-time">2026-08-12 10:37:23</div><div class="prd-h5-funds-amount">+29.9</div><div class="prd-h5-funds-balance">交易后余额：523.08</div></div>
+                  </div>
+                </div></div></td>
+              </tr>
+              <tr class="prd-reference-group" id="prototype-console"><th colspan="3"><span class="group-index">03</span><strong>总控台管理</strong><small>商家管理、充值弹窗、充值订单</small></th></tr>
+              <tr>
+                <td>总控台 · 商家管理</td>
+                <td><h3>商家类型展示</h3><ul><li>沿用线上商家管理页面的筛选区和表格结构，在“商家版本”筛选项中增加“长期版”可选值，与“普通版”等已有类型保持同级。</li><li>表格继续使用现有“商家类型”列展示会员标签；长期版以“长期版”标签呈现，抵扣信息沿用充值订单和商家会员状态的关联记录。</li></ul><h3>订单关联规则</h3><ul><li>总控台成功创建并完成充值的“【1688】长期会员版”订单，作为商家长期版身份的生效依据。</li><li>订单生效后，商家管理列表默认显示“长期版”标签；标签与当前有效订单关联，便于运营人员在商家列表中识别会员类型与充值来源。</li></ul><div class="prd-ref-note"><strong>示例：</strong>长期会员版充值成功后，对应商家在“商家类型”列显示“长期版”，列表页面呈现会员标签。</div></td>
+                <td><div class="prd-reference-shot prd-reference-prototype"><div class="prd-replica prd-console-manage-replica">
+                  <aside class="prd-manage-sidebar"><strong>戴鹏飞 @ 商家岛</strong><span>▣　概况</span><span>▣　充值中心</span><span>⌁　运营中心</span><span class="active">♙　商家管理</span><span>▥　营销管理</span><span>⚙　设置</span><span>▣　店铺管理</span><span>♙　消费者</span><span>▣　制作中心</span><span>♙　CSM菜单</span><span>▣　封禁管理</span><span>▣　数据中心</span><span>♙　审核中心</span></aside>
+                  <div class="prd-manage-main">
+                    <div class="prd-manage-topnav"><span>商家管理</span><span>活动</span><span>活动标签管理</span><span>活动模板管理</span><span>三方账号列表</span><span>代码管理</span><span>方案管理</span><span>公有商户号权限&特殊结算</span><span>订单充值</span><b class="prd-manage-star">★</b></div>
+                    <div class="prd-manage-titlebar"><strong>商家管理</strong><span>退出</span></div>
+                    <div class="prd-manage-content">
+                      <div class="prd-manage-filters">
+                        <div class="prd-manage-filter-row"><label class="prd-manage-filter">商家ID：<span class="prd-manage-field">请输入商家ID</span></label><label class="prd-manage-filter">手机号：<span class="prd-manage-field">手机号</span></label><label class="prd-manage-filter">机构名称：<span class="prd-manage-field">请输入机构名称</span></label><label class="prd-manage-filter">城市：<span class="prd-manage-field">请选择城市　<i>⌄</i></span></label></div>
+                        <div class="prd-manage-filter-row"><label class="prd-manage-filter">要解决的问题：<span class="prd-manage-field">请选择要解决的问题　<i>⌄</i></span></label><label class="prd-manage-filter">商家版本：<span class="prd-manage-field"><strong>普通版 / 长期版</strong><i>⌄</i></span></label><label class="prd-manage-filter">行业标签：<span class="prd-manage-field">请选择　<i>⌄</i></span></label><label class="prd-manage-filter">售后负责人：<span class="prd-manage-field">请选择售后负责人　<i>⌄</i></span></label></div>
+                        <div class="prd-manage-filter-row"><label class="prd-manage-filter">注册来源：<span class="prd-manage-field">请选择注册来源　<i>⌄</i></span></label><label class="prd-manage-filter">充值状态：<span class="prd-manage-field">全部　<i>⌄</i></span></label><label class="prd-manage-filter">商家对接状态：<span class="prd-manage-field">请选择商家对接状态　<i>⌄</i></span></label><label class="prd-manage-filter">是否创建过活动：<span class="prd-manage-field">请选择　<i>⌄</i></span></label></div>
+                        <div class="prd-manage-filter-row"><label class="prd-manage-filter">是否灰度：<span class="prd-manage-field">全部　<i>⌄</i></span></label><label class="prd-manage-filter">到期时间：<span class="prd-manage-field">请选择到期时间　～</span></label><label class="prd-manage-filter">注册时间：<span class="prd-manage-field">请选择注册时间　～</span></label><label class="prd-manage-filter">机构成立时间：<span class="prd-manage-field">请选择机构成立时间　～</span></label></div>
+                        <div class="prd-manage-filter-row"><label class="prd-manage-filter">累计营收时间：<span class="prd-manage-field">请选择累计营收时间　～</span></label><label class="prd-manage-filter">商家状态：<span class="prd-manage-radio"><b class="active">全部</b><b>正常</b><b>已禁用</b></span></label><span></span><span></span></div>
+                      </div>
+                      <div class="prd-manage-actions"><button>搜索</button><button>重置</button><button>创建通用充值单</button><button>导出</button><button>商家行业标签</button><button>底部广告注册线索统计</button></div>
+                      <div class="prd-manage-summary">商家总数：<b>487131</b>　创建过活动的商家数量：<b>113683</b>　注册商家创建活动比例 <b>23.34%</b></div>
+                      <div class="prd-manage-table"><div class="prd-manage-row head"><span>ID</span><span>机构信息</span><span>历史账号</span><span>商家类型</span><span>关联总部</span><span>遇到的问题</span><span>操作</span></div><div class="prd-manage-row"><span>706270</span><span class="merchant"><strong>181****4649</strong>希望美术天赋广场校区<small>[ - ]</small></span><span>-</span><span><em class="prd-manage-type">普通版</em></span><span>-</span><span>-</span><span class="prd-manage-link">他的活动｜商家信息｜查看后台｜创建充值单 <small>开启训练营｜升级专业版</small></span></div><div class="prd-manage-row"><span>706255</span><span class="merchant"><strong>187****7169</strong>希望美术教育<small>[ 0·0 ]</small></span><span>-</span><span><em class="prd-manage-type long">长期版</em></span><span>-</span><span>需认证</span><span class="prd-manage-link">他的活动｜商家信息｜查看后台｜创建充值单 <small>开启训练营｜升级专业版</small></span></div><div class="prd-manage-row"><span>706254</span><span class="merchant"><strong>131****1669</strong>洗脸熊八代店<small>[ - ]</small></span><span>-</span><span><em class="prd-manage-type">普通版</em></span><span>-</span><span>-</span><span class="prd-manage-link">他的活动｜商家信息｜查看后台｜创建充值单 <small>开启训练营｜升级专业版</small></span></div></div>
+                    </div>
+                  </div>
+                </div></div></td>
+              </tr>
+              <tr>
+                <td>总控台 · 充值弹窗</td>
+                <td><h3>字段承载</h3><ul><li>保留线上充值弹窗的商家账号查询、门店选择、客户来源、充值类型、付款方式、交易单号、业绩归属人和备注。</li><li>在现有“充值套餐”位置增加“【1688】长期会员版”，订单类型固定记录为“软件无限时长 + 1688 元充值抵扣费”；弹窗展示软件长期有效、充值金额 1688 元和“默认收款费率：5%”提示。</li></ul><h3>提交校验</h3><ul><li>提交后立即生成长期会员版订单并写入软件长期有效、充值金额 1688 元和抵扣额度 1688 元；收款能力仍以商户号认证为开启条件，认证后按 5% 费率执行。</li></ul><h3>人工处理入口</h3><ul><li>订单作废或退款均由总控台人工确认后执行，充值弹窗保留人工处理记录。</li></ul></td>
+                <td><div class="prd-reference-shot prd-reference-prototype"><div class="prd-replica prd-console-replica">
+                  <div class="prd-recharge-modal">
+                    <div class="prd-modal-title"><strong>充值</strong><span>×</span></div>
+                    <div class="prd-modal-body">
+                      <div class="prd-modal-line"><label>商家账号：</label><div class="prd-account-search"><input value="18667015630" readonly><button>查找</button></div></div>
+                      <div class="prd-modal-line"><label>商家门店：</label><div class="prd-store-card"><div><strong>大方教育店（129）</strong><em>最近使用</em></div><p>注册时间：2021-03-20 11:48　　到期时间：2028-02-28 23:59</p></div></div>
+                      <div class="prd-modal-line"><label>客户来源：</label><div class="prd-modal-control"><span>注册</span><i>⌄</i></div></div>
+                      <div class="prd-modal-section"><label>充值类型：</label><div><div class="prd-recharge-tabs"><span><b class="prd-tab-icon blue">◆</b>软件充值</span><span><b class="prd-tab-icon red">⌄</b>服务充值</span><span><b class="prd-tab-icon orange">◆</b>训练营充值</span></div><div class="prd-recharge-panel"><label><span>充值套餐</span><span class="prd-modal-control"><span>【1688】长期会员版</span><i>⌄</i></span></label><div class="prd-modal-tags"><div class="prd-modal-tag"><b>软件时长</b><span>长期有效</span></div><div class="prd-modal-tag orange"><b>充值金额</b><span>1688 元</span></div></div><div class="prd-modal-rate-note">默认收款费率：5%</div></div></div></div>
+                      <div class="prd-modal-two"><div class="prd-modal-line"><label>付款方式：</label><div class="prd-modal-control"><span>微信转账 / 收钱码</span><i>⌄</i></div></div><div class="prd-modal-line"><label>交易单号：</label><div class="prd-modal-control"><span>请输入交易单号</span></div></div></div>
+                      <div class="prd-modal-two"><div class="prd-modal-line"><label>业绩归属人：</label><div class="prd-modal-control"><span>请选择业绩归属人</span><i>⌄</i></div></div><div class="prd-modal-line"><label>共享业绩人：</label><div class="prd-modal-control"><span>请选择共享业绩人</span><i>⌄</i></div></div></div>
+                      <div class="prd-modal-line"><label>备注：</label><div class="prd-modal-control"><span>请输入备注</span></div></div>
+                    </div>
+                    <div class="prd-modal-foot"><button class="primary">提交</button><button>取消</button></div>
+                  </div>
+                </div></div></td>
+              </tr>
+              <tr>
+                <td>总控台 · 充值订单<br><small class="prd-page-alias">同步运营中心 · 订单充值</small></td>
+                <td><h3>列表复用</h3><ul><li>页面结构、字段和操作方式同步运营中心“订单充值”功能，保持线上页面一致。</li><li>沿用线上订单充值 Tab、筛选区、统计卡片和订单列表布局。</li><li>订单类型、充值套餐、软件时长、充值时间、到期时间和操作列保持既有结构。</li></ul><div class="prd-ref-note"><strong>页面提示：</strong>总控台充值订单与运营中心订单充值为同一套页面能力，本需求补充“【1688】长期会员版”套餐数据及其权益展示。</div><h3>订单状态与人工操作</h3><ul><li>成功订单记录“软件无限时长 + 1688 元充值抵扣费”、充值金额 1688 元、抵扣余额和当前会员状态；充值完成即进入生效状态，并同步更新商家管理中的“长期版”标签。</li><li>作废或退款：操作确认后关闭会员权益，回收尚未消耗的抵扣余额，并将订单标记为已作废或已退款；后续个人中心、H5 会员卡、资金页和商家管理标签均按订单结果展示。</li></ul></td>
+                <td><div class="prd-reference-shot prd-reference-prototype"><div class="prd-replica prd-orders-replica">
+                  <div class="prd-console-top"><strong>总控台 · 充值订单</strong><span class="active">订单充值</span><span>业绩统计</span><span>充值作废流水明细</span></div>
+                  <div class="prd-order-filter"><span>充值类型：全部</span><span>账号：请输入账号</span><span>机构名称：请输入机构名称</span><span>客户来源：全部</span><span>套餐：【1688】长期会员版</span><span>充值时间：请选择</span></div>
+                  <div class="prd-order-kpis"><div><b>177</b><span>正常订单</span></div><div><b>115</b><span>商家总数</span></div><div><b>9957.67</b><span>正常订单金额</span></div><div><b>1</b><span>预充值订单</span></div></div>
+                  <div class="prd-order-table"><div class="prd-order-row head"><span>ID</span><span>账号/手机号</span><span>充值类型/套餐</span><span>充值金额</span><span>软件时长</span><span>充值后应到期时间</span></div><div class="prd-order-row"><span>2096</span><span>18667015630</span><span>软件充值<br>【1688】长期会员版</span><span>1688.00</span><span class="ok">长期有效</span><span class="ok">长期有效</span></div><div class="prd-order-row"><span>2080</span><span>155****1331</span><span>软件充值<br>买1年</span><span>1688.00</span><span>360天</span><span>2027-04-17<br>修改 · 作废</span></div><div class="prd-order-row"><span>2052</span><span>188****1123</span><span>软件充值<br>买1年</span><span>1688.00</span><span>371天</span><span>2027-03-31<br>修改 · 作废</span></div></div>
+                </div></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+        </div>
+      </div>
+    </div>
+
+  <div class="plan-view" id="plan-view">
   <header class="doc-header">
     <div class="doc-header-inner">
       <div class="doc-title">
@@ -1541,5 +2430,44 @@
       </div>
     </div>
   </section>
+  </div>
+  </main>
+  <script>
+    (() => {
+      const buttons = [...document.querySelectorAll('[data-doc-tab]')];
+      const prototypeLinks = [...document.querySelectorAll('[data-prototype-nav]')];
+      const prototypeGroups = [...document.querySelectorAll('.prd-reference-group[id]')];
+      const setPrototypeActive = (id) => {
+        prototypeLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
+      };
+      const setView = (view, updateHash = true) => {
+        const isPlan = view === 'plan';
+        document.body.classList.toggle('plan-active', isPlan);
+        buttons.forEach((button) => {
+          button.classList.toggle('active', button.dataset.docTab === view);
+          button.setAttribute('aria-selected', String(button.dataset.docTab === view));
+        });
+        if (updateHash) history.replaceState(null, '', isPlan ? '#plan' : '#prd');
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      };
+      buttons.forEach((button) => button.addEventListener('click', () => setView(button.dataset.docTab)));
+      prototypeLinks.forEach((link) => link.addEventListener('click', () => setPrototypeActive(link.getAttribute('href').slice(1))));
+      let navFrame = null;
+      const syncPrototypeNav = () => {
+        navFrame = null;
+        let current = prototypeGroups[0];
+        prototypeGroups.forEach((group) => {
+          if (group.getBoundingClientRect().top <= 160) current = group;
+        });
+        if (current) setPrototypeActive(current.id);
+      };
+      window.addEventListener('scroll', () => {
+        if (!navFrame) navFrame = requestAnimationFrame(syncPrototypeNav);
+      }, {passive: true});
+      setView(window.location.hash === '#plan' ? 'plan' : 'prd', false);
+      if (window.location.hash.startsWith('#prototype-')) setPrototypeActive(window.location.hash.slice(1));
+      else syncPrototypeNav();
+    })();
+  </script>
 </body>
 </html>
